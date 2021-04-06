@@ -1,0 +1,58 @@
+﻿{
+    "data": [
+        {
+            "NAME": "OUJ-PG01.OUJ-1003.MW.2",
+            "A_SITE": "OUJ-PG01",
+            "Z_SITE": "OUJ-1003",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1024.OUJ-1003.MW.1",
+            "A_SITE": "OUJ-1024",
+            "Z_SITE": "OUJ-1003",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1102.OUJ-1003.MW.1",
+            "A_SITE": "OUJ-1102",
+            "Z_SITE": "OUJ-1003",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-PG01.OUJ-1003.MW.1",
+            "A_SITE": "OUJ-PG01",
+            "Z_SITE": "OUJ-1003",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1024.OUJ-1003.MW.2",
+            "A_SITE": "OUJ-1024",
+            "Z_SITE": "OUJ-1003",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-9001.OUJ-1003.MW.01",
+            "A_SITE": "OUJ-9001",
+            "Z_SITE": "OUJ-1003",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1036.OUJ-1003.MW.1",
+            "A_SITE": "OUJ-1036",
+            "Z_SITE": "OUJ-1003",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1065.OUJ-1024.MW.1",
+            "A_SITE": "OUJ-1065",
+            "Z_SITE": "OUJ-1024",
+            "LVL": "2"
+        },
+        {
+            "NAME": "OUJ-1052.OUJ-1024.MW.1",
+            "A_SITE": "OUJ-1052",
+            "Z_SITE": "OUJ-1024",
+            "LVL": "2"
+        }
+    ]
+}

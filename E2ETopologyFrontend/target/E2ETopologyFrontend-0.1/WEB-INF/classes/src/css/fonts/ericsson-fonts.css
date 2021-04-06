@@ -1,0 +1,55 @@
+
+	@font-face {
+		font-family: "Ericsson Hilda";	
+		  src: url('../fonts/EricssonHilda-Regular.eot');
+		  src: url('../fonts/EricssonHilda-Regular.eot?#iefix') format('embedded-opentype'),
+			   url('../fonts/EricssonHilda-Regular.woff2') format('woff2'),
+			   url('../fonts/EricssonHilda-Regular.woff') format('woff'),
+			   url('../fonts/EricssonHilda-Regular.ttf') format('truetype');
+		  font-weight: normal;
+		  font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Ericsson Hilda";	
+		  src: url('../fonts/EricssonHilda-Bold.eot');
+		  src: url('../fonts/EricssonHilda-Bold.eot?#iefix') format('embedded-opentype'),
+			   url('../fonts/EricssonHilda-Bold.woff2') format('woff2'),
+			   url('../fonts/EricssonHilda-Bold.woff') format('woff'),
+			   url('../fonts/EricssonHilda-Bold.ttf') format('truetype');
+		  font-weight: 700;
+		  font-style: normal;
+	}
+	
+	@font-face {
+		font-family: "Ericsson Hilda";	
+		  src: url('../fonts/EricssonHilda-Light.eot');
+		  src: url('../fonts/EricssonHilda-Light.eot?#iefix') format('embedded-opentype'),
+			   url('../fonts/EricssonHilda-Light.woff2') format('woff2'),
+			   url('../fonts/EricssonHilda-Light.woff') format('woff'),
+			   url('../fonts/EricssonHilda-Light.ttf') format('truetype');
+		  font-weight: 300;
+		  font-style: normal;
+	}
+	
+	@font-face {
+		font-family: "Ericsson Hilda";	
+		  src: url('../fonts/EricssonHilda-Medium.eot');
+		  src: url('../fonts/EricssonHilda-Medium.eot?#iefix') format('embedded-opentype'),
+			   url('../fonts/EricssonHilda-Medium.woff2') format('woff2'),
+			   url('../fonts/EricssonHilda-Medium.woff') format('woff'),
+			   url('../fonts/EricssonHilda-Medium.ttf') format('truetype');
+		  font-weight: 500;
+		  font-style: normal;
+	}
+	
+	@font-face {
+		font-family: "Ericsson Icons";
+		  src: url('../fonts/Ericsson-Icons.eot');
+		  src: url('../fonts/Ericsson-Icons.eot?#iefix') format('embedded-opentype'),
+			   url('../fonts/Ericsson-Icons.woff') format('woff'),
+			   url('../fonts/Ericsson-Icons.ttf') format('truetype'),
+			   url('../fonts/Ericsson-Icons.svg') format('svg');
+		  font-weight: normal;
+		  font-style: normal;
+	}

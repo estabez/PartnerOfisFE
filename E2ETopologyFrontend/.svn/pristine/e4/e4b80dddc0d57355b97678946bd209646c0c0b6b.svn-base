@@ -1,0 +1,88 @@
+﻿{
+    "data": [
+        {
+            "NAME": "OUJ-ONE1.OUJ-1015.MW.2",
+            "A_SITE": "OUJ-ONE1",
+            "Z_SITE": "OUJ-1001",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1068.OUJ-1001.MW.1",
+            "A_SITE": "OUJ-1068",
+            "Z_SITE": "OUJ-1001",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-ONE1.OUJ-1001.MW.1",
+            "A_SITE": "OUJ-ONE1",
+            "Z_SITE": "OUJ-1001",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1038.OUJ-1001.MW.1",
+            "A_SITE": "OUJ-1038",
+            "Z_SITE": "OUJ-1001",
+            "LVL": "1"
+        },
+        {
+            "NAME": "OUJ-1137.OUJ-ONE1.MW.1",
+            "A_SITE": "OUJ-1137",
+            "Z_SITE": "OUJ-ONE1",
+            "LVL": "2"
+        },
+        {
+            "NAME": "OUJ-1088.OUJ-1068.MW.1",
+            "A_SITE": "OUJ-1088",
+            "Z_SITE": "OUJ-1068",
+            "LVL": "2"
+        },
+        {
+            "NAME": "OUJ-1018.OUJ-ONE1.MW.1",
+            "A_SITE": "OUJ-1018",
+            "Z_SITE": "OUJ-ONE1",
+            "LVL": "2"
+        },
+        {
+            "NAME": "OUJ-1144.OUJ-ONE1.MW.1",
+            "A_SITE": "OUJ-1144",
+            "Z_SITE": "OUJ-ONE1",
+            "LVL": "2"
+        },
+        {
+            "NAME": "OUJ-1019.OUJ-ONE1.MW.1",
+            "A_SITE": "OUJ-1019",
+            "Z_SITE": "OUJ-ONE1",
+            "LVL": "2"
+        },
+        {
+            "NAME": "JRD-1006 - OUJ-0018.MW_ALU",
+            "A_SITE": "JRD-1006",
+            "Z_SITE": "OUJ-1018",
+            "LVL": "3"
+        },
+        {
+            "NAME": "OUJ-1046.OUJ-1018.MW.1",
+            "A_SITE": "OUJ-1046",
+            "Z_SITE": "OUJ-1018",
+            "LVL": "3"
+        },
+        {
+            "NAME": "OUJ-1016.OUJ-1019.MW.1",
+            "A_SITE": "OUJ-1016",
+            "Z_SITE": "OUJ-1019",
+            "LVL": "3"
+        },
+        {
+            "NAME": "OUJ-1017.OUJ-1019.MW.1",
+            "A_SITE": "OUJ-1017",
+            "Z_SITE": "OUJ-1019",
+            "LVL": "3"
+        },
+        {
+            "NAME": "OUJ-1057.OUJ-1016.MW.1",
+            "A_SITE": "OUJ-1057",
+            "Z_SITE": "OUJ-1016",
+            "LVL": "4"
+        }
+    ]
+}

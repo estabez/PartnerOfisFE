@@ -1,0 +1,268 @@
+{
+  "welcomeTo": "Bienvenue à",
+  "appName": "E2E Topology View",
+  "usernameInput": "Nom d'utilisateur",
+  "passwordInput": "Mot de passe",
+  "loginButtonText": "S'identifier",
+  "logoutButtonText": "Se déconnecter",
+  "helpButtonText": "Aidez-moi",
+  "languageButtonText": "Changer de langue",
+  "snapshotButtonText": "Prendre un instantané",
+  "loginError": "Veuillez vérifier vos informations d'identification",
+  "fr": "EN",
+  "notFound": "La page que vous essayez de rechercher n'est pas accessible !",
+  "forbiddenAccess": "La page que vous essayez d'accéder n'est pas accessible pour vous !",
+  "backTo": "Retour à la page d'accueil",
+  "maximize": "Maximiser",
+  "standard": "La norme",
+  "import": "Importation",
+  "export": "Exportation",
+  "upload": "Poursuivre l'action d'importation",
+  "validate": "Valider le fichier sélectionné",
+  "chooseFile": "Veuillez choisir un fichier à importer",
+  "noFileChosen": "Aucun Fichier Choisi",
+  "importDataMatrixFile": "Importer un fichier Data Matrix",
+  "exportDataMatrixFile": "Exporter un fichier Data Matrix",
+  "loadByRegion": "Charge par Région",
+  "loadByRadioSite": "Charge par Radio Connectés",
+  "coreTopology" : "Topologie Core",
+  "ranTopology" : "Topologie Ran",
+  "wdmTopology" : "Topologie WDM",
+  "aggregSiteNoData": "Ce site d'agrégation n'a pas de sites radio connectés!",
+  "selectNode": "Sélectionnez un nœud",
+  "routes": [
+    {
+      "title": "Matrice de connectivité",
+      "path": "/matrix",
+      "icon": "icon icon-table"
+    },
+    {
+      "title": "Topologie Ran",
+      "path": "/ran",
+      "icon": "icon icon-routing"
+    },
+    {
+      "title": "Topologie WDM",
+      "path": "/wdm",
+      "icon": "icon icon-network"
+    },
+    {
+      "title": "Topologie Core",
+      "path": "/core",
+      "icon": "icon icon-node"
+    }
+  ],
+  "matrixToolbar": {
+    "group1": [
+      {
+        "id": "import",
+        "title": "Importation",
+        "icon": "icon-download-save",
+        "btnClass": "primary",
+        "clickEvent": "import",
+        "showMe": true
+      },
+      {
+        "id": "export",
+        "title": "Exportation",
+        "icon": "icon-upload",
+        "btnClass": "primary",
+        "clickEvent": "export",
+        "showMe": true
+      },
+      {
+        "id": "new",
+        "title": "Nouveau",
+        "icon": "icon-plus",
+        "btnClass": "success",
+        "clickEvent": "new",
+        "showMe": true
+      },
+      {
+        "id": "duplicate",
+        "clickEvent" : "duplicate",
+        "title": "Dupliquer",
+        "icon": "icon-layers",
+        "btnClass": "success",
+        "showMe": true
+      },
+      {
+        "id": "edit",
+        "title": "Éditer",
+        "icon": "icon-edit",
+        "btnClass": "secondary",
+        "clickEvent": "edit",
+        "showMe": true
+      },
+      {
+        "id": "saveOptions",
+        "title": "Enregistrer les Options",
+        "icon": "icon-save",
+        "btnClass": "warning",
+        "showMe": false,
+        "children": [
+          {
+            "id": "save",
+            "title": "Enregistrer",
+            "icon": "icon-check",
+            "class": "dropdown-item text-primary",
+            "clickEvent": "save",
+            "showOnNewRow": true
+          },
+          {
+            "id": "saveRevision",
+            "title": "Enregistrer par Révision",
+            "icon": "icon-time",
+            "class": "dropdown-item text-success",
+            "clickEvent": "save-history",
+            "showOnNewRow": false
+          },
+          {
+            "id": "cancel",
+            "title": "Annuler",
+            "icon": "icon-cross",
+            "class": "dropdown-item text-danger",
+            "clickEvent": "cancel",
+            "showOnNewRow": true
+          }
+        ]
+      }
+    ],
+    "group2": [
+      {
+        "id": "lock",
+        "clickEvent" : "lock",
+        "title": "Fermer à clé",
+        "icon": "icon-lock-locked",
+        "btnClass": "warning",
+        "showMe": true
+      },
+      {
+        "id": "unlock",
+        "clickEvent" : "unlock",
+        "title": "Ouvrir",
+        "icon": "icon-lock-unlocked",
+        "btnClass": "info",
+        "showMe": true
+      }
+    ]
+  },
+  "ranViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "coreViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "wdmViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "ranSecondViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "validationMessageBoxTitle": "Validation Error",
+  "validationErrorMessages": {
+    "oldAggrSite": "L'ancien site d'agrégation n'existe pas dans EAI DB!",
+    "newAggrSite": "Le nouveau site d'agrégation n'existe pas dans EAI DB!",
+    "radioSite": "Le site radio n'existe pas dans EAI DB!",
+    "rncName": "Le nom RNC n'existe pas dans EAI DB!",
+    "bscName": "Le nom BSC n'existe pas dans EAI DB!",
+    "invalidNumber": "La valeur n'est pas un nombre valide!",
+    "invalidIP": "Le format d'adresse IP n'est pas valide!"
+  },
+  "validationErrorGeneralMessage": "L'action ne peut pas être effectuée en raison d'erreurs de validation.",
+  "editModeRestrictionTitle": "Mode d'édition restreint",
+  "editModeRestriction": "Cette ligne ne peut pas être éditée car elle est !",
+  "mandatoryDataTitle": "Erreur de données obligatoires",
+  "mandatoryDataText": "Les colonnes obligatoires doivent être remplies.<br>Veuillez vérifier que les colonnes sont remplies: <hr>{columns}",
+  "saveActionSuccessTitle": "Enregistrer l'action avec succès",
+  "saveActionFailTitle": "Échec de l'enregistrement de l'action",
+  "importSection": {
+    "selectedFileLabel": "Fichier sélectionné: ",
+    "totalRowCount": "Total de lignes",
+    "successRowCount": "Lignes de réussite",
+    "failedRowCount": "Lignes échouées",
+    "totalRowText": "Nombre total de lignes du fichier Excel importé",
+    "successRowText": "Nombre total de lignes importées avec succès",
+    "failedRowText": "Nombre total de lignes ayant échoué pendant l'importation",
+    "rows": "lignes",
+    "downloadLogFile": "Téléchargez le fichier journal détaillé",
+    "summaryLabel": "Sommaire",
+    "selectedFileValid": "Le fichier sélectionné est valide pour poursuivre l'action d'importation.",
+    "selectedFileNotValid": "La validation a échoué, vérifiez les titres des colonnes de votre fichier Excel et essayez de réimporter.",
+    "wrongFileExtTitle": "Erreur de type de fichier",
+    "wrongFileExt": "Le type de fichier n'est pas autorisé!",
+    "progressError": "Une erreur s'est produite, veuillez réessayer!",
+    "warningTitleForLastStep": "Voulez-vous continuer ?",
+    "warningMessageForLastStep": "Toutes les données de topologie E2E seront écrasées!",
+    "locksCountForLastStep": "Il y a {count} verrou dans les données de topologie E2E. Si vous choisissez de continuer à importer les données seront déverrouillées.",
+    "ongoingImportTitle": "Processus d'importation",
+    "ongoingImportText": "Le processus d'importation a été lancé par {username} et est toujours en cours. Veuillez attendre la fin et réessayer peu de temps.",
+    "longTimeWaitMessageForUpload": "Veuillez patienter, la progression de l'importation prend un certain temps."
+  },
+  "emptyDataSet": {
+    "matrix": {
+      "title": "Données de matrice de connectivité",
+      "spot": "Cette page utilise pour manipuler les données importées vers EAI DB.",
+      "text": "Il semble que vous deviez importer pour la première initialisation. Veuillez utiliser le bouton d'importation qui existe dans la barre d'outils."
+    },
+    "ran": {
+      "title": "Diagramme de topologie Ran",
+      "spot": "Cette page montre le diagramme de topologie exécuté au premier et au deuxième niveau à l'utilisateur.",
+      "text": "Il semble qu'il n'y ait pas de données dans EAI DB. Veuillez d'abord importer les données dans EAI DB à partir de la page de matrice de connectivité."
+    },
+    "wdm": {
+      "title": "Diagramme de topologie WDM",
+      "spot": "Cette page montre le diagramme de topologie wdm à l'utilisateur.",
+      "text": "Il semble qu'il n'y ait pas de données dans EAI DB. Veuillez d'abord importer les données dans EAI DB à partir de la page de matrice de connectivité."
+    },
+    "core": {
+      "title": "Diagramme de topologie de base",
+      "spot": "Cette page montre le diagramme de topologie de base à l'utilisateur.",
+      "text": "Il semble qu'il n'y ait pas de données dans EAI DB. Veuillez d'abord importer les données dans EAI DB à partir de la page de matrice de connectivité."
+    }
+  },
+  "showRevisionText": "Afficher archivé",
+  "paginationDisabled": "Enregistrez vos modifications ou annulez-les pour sauvegarder la pagination.",
+  "lockModeRestrictionTitle": "Verrouiller / déverrouiller restreint",
+  "lockModeRestriction": "Vous ne pouvez pas verrouiller ou déverrouiller cette ligne car elle est archivée!",
+  "lockMechanism": {
+    "title": "Action de verrouillage de ligne",
+    "100": "Cette rangée a été verrouillée par moi à {time}",
+    "110": "Cette ligne a été verrouillée par {uname} à {time}",
+    "120": "Cette ligne est réservée par {uname}, personne ne peut faire de manipulation sur cette ligne pour le moment."
+  },
+  "unlockMechanism": {
+    "title": "Action de déverrouillage de ligne",
+    "200": "Cette ligne a été déverrouillée par moi à {time}",
+    "210": "Cette ligne a été verrouillée par {uname} à {time}. Vous ne pouvez pas déverrouiller. Veuillez contacter l'utilisateur.",
+    "220": "Cette ligne ne contient aucune information de verrouillage!",
+    "230": "Cette ligne est explicitement verrouillée par {uname} à {time}. Si vous souhaitez déverrouiller, veuillez utiliser le bouton de déverrouillage explicite sur la barre d'outils!"
+  },
+  "lockStatusMessages": {
+    "Locked_Current_User": "Verrouillé par l'utilisateur actuel",
+    "Locked_Other_User": "Verrouillé par un autre utilisateur",
+    "Not_Locked": "Non verrouillé"
+  },
+  "radioSiteExistsWithSameNameTitle": "Le site radio existe!",
+  "radioSiteExistsWithSameNameText": "Le site radio existe, si vous continuez, une nouvelle révision sera créée."
+}

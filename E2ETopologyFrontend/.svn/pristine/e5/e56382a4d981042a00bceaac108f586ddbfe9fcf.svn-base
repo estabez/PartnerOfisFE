@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "name": "316 - TOULAL2 TO Azrou-313 - Azrou To TOULAL-OMS-29158",
+      "status": "ACTIVE",
+      "band_width": "OMS",
+      "a_side_site": "MEK-ONE1",
+      "a_side_equip": "MEK-ONE1 OSN 6800 03",
+      "z_side_site": "AZR-ONE1",
+      "z_side_equip": "AZR-ONE1 OSN 6800 01"
+    }
+  , {
+      "name": "311-IFRAN TO AZROU-314 - Azrou To IFRANE-OMS-29159",
+      "status": "ACTIVE",
+      "band_width": "OMS",
+      "a_side_site": "IFR-ONE1",
+      "a_side_equip": "IFR-ONE1 OSN 6800 01",
+      "z_side_site": "AZR-ONE1",
+      "z_side_equip": "AZR-ONE1 OSN 6800 03"
+    }
+  , {
+      "name": "Tazzart_M ID79-HASSAN1_M ID73-OMS-66900",
+      "status": "ACTIVE",
+      "band_width": "OMS",
+      "a_side_site": "MAR-ONE4",
+      "a_side_equip": "MAR-ONE4 Metro 6100V1E 02",
+      "z_side_site": "BNM-ONE4",
+      "z_side_equip": "BNM-ONE4 Metro 6100V1E 02"
+    }
+  , {
+      "name": "315 - TOULAL TO Douyet-308-Douyet To TOULAL-OMS-26803",
+      "status": "ACTIVE",
+      "band_width": "OMS",
+      "a_side_site": "MEK-ONE1",
+      "a_side_equip": "MEK-ONE1 OSN 6800 01",
+      "z_side_site": "FEZ-ONE1",
+      "z_side_equip": "FEZ-ONE1 OSN 6800 01"
+    }
+  , {
+      "name": "310 - Allal fassi to douyet-307-Douyet To ALLALFASI-OMS-26801",
+      "status": "ACTIVE",
+      "band_width": "OMS",
+      "a_side_site": "FEZ-ONE2",
+      "a_side_equip": "FEZ-ONE2 OSN 6800 03",
+      "z_side_site": "FEZ-ONE1",
+      "z_side_equip": "FEZ-ONE1 OSN 6800 03"
+    }
+  , {
+      "name": "309 - Allal fassi to Ifran-312-IFRAN TO ALLAL FASSI-OMS-26804",
+      "status": "ACTIVE",
+      "band_width": "OMS",
+      "a_side_site": "FEZ-ONE2",
+      "a_side_equip": "FEZ-ONE2 OSN 6800 01",
+      "z_side_site": "IFR-ONE1",
+      "z_side_equip": "IFR-ONE1 OSN 6800 03"
+    }
+  , {
+      "name": "308-Douyet To TOULAL-315 - TOULAL TO Douyet-OMS-26802",
+      "status": "ACTIVE",
+      "band_width": "OMS",
+      "a_side_site": "FEZ-ONE1",
+      "a_side_equip": "FEZ-ONE1 OSN 6800 01",
+      "z_side_site": "MEK-ONE1",
+      "z_side_equip": "MEK-ONE1 OSN 6800 01"
+    }
+  ]
+}

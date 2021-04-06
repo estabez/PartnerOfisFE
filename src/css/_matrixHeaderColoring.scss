@@ -1,0 +1,48 @@
+/*
+Data Matrix header group coloring
+*/
+
+.handsontable {
+  thead {
+    th {
+      &.color1 {
+        background: rgb(152,51,102);
+        color: #fff;
+      }
+      &.color2 {
+        background: rgb(141,180,226);
+      }
+      &.color3 {
+        background: rgb(78,55,100);
+        color: #fff;
+      }
+      &.color4 {
+        background: rgb(236,167,44);
+        color: #fff;
+      }
+      &.color5 {
+        background: rgb(136,126,150);
+        color: #fff;
+      }
+      &.color6 {
+        background: rgb(249,133,65);
+        color: #fff;
+      }
+      &.color7 {
+        background: rgb(206,214,92);
+      }
+      &.color8 {
+        background: rgb(52,103,92);
+        color: #fff;
+      }
+      &.color9 {
+        background: rgb(252,100,77);
+        color: #fff;
+      }
+      &.color10 {
+        background: rgb(22,170,177);
+        color: #fff;
+      }
+    }
+  }
+}

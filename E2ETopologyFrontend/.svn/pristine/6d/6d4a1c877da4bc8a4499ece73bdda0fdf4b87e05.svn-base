@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/E2ETopology/static/css/main.7a70dccc.chunk.css",
+    "main.js": "/E2ETopology/static/js/main.a114921e.chunk.js",
+    "main.js.map": "/E2ETopology/static/js/main.a114921e.chunk.js.map",
+    "runtime-main.js": "/E2ETopology/static/js/runtime-main.cb5fcf62.js",
+    "runtime-main.js.map": "/E2ETopology/static/js/runtime-main.cb5fcf62.js.map",
+    "static/css/2.63224e1b.chunk.css": "/E2ETopology/static/css/2.63224e1b.chunk.css",
+    "static/js/2.02f1bdb8.chunk.js": "/E2ETopology/static/js/2.02f1bdb8.chunk.js",
+    "static/js/2.02f1bdb8.chunk.js.map": "/E2ETopology/static/js/2.02f1bdb8.chunk.js.map",
+    "index.html": "/E2ETopology/index.html",
+    "precache-manifest.a54cad70cade6244a4c2b6bbf761745b.js": "/E2ETopology/precache-manifest.a54cad70cade6244a4c2b6bbf761745b.js",
+    "service-worker.js": "/E2ETopology/service-worker.js",
+    "static/css/2.63224e1b.chunk.css.map": "/E2ETopology/static/css/2.63224e1b.chunk.css.map",
+    "static/css/main.7a70dccc.chunk.css.map": "/E2ETopology/static/css/main.7a70dccc.chunk.css.map",
+    "static/js/2.02f1bdb8.chunk.js.LICENSE": "/E2ETopology/static/js/2.02f1bdb8.chunk.js.LICENSE",
+    "static/media/App.scss": "/E2ETopology/static/media/save.49fdbc06.svg",
+    "static/media/spinner.svg": "/E2ETopology/static/media/spinner.6e5cbb10.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb5fcf62.js",
+    "static/css/2.63224e1b.chunk.css",
+    "static/js/2.02f1bdb8.chunk.js",
+    "static/css/main.7a70dccc.chunk.css",
+    "static/js/main.a114921e.chunk.js"
+  ]
+}

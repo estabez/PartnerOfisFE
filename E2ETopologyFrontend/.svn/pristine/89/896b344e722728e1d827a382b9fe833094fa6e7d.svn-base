@@ -1,0 +1,144 @@
+{
+    "data": [
+        {
+            "REGION": "Agadir",
+            "NODE_A": "TAN_BSC3",
+            "NODE_A_TYPE": "BSC",
+            "NODE_B": "OUJ-1001/AN-80i/01",
+            "NODE_B_TYPE": "IP_EQUIP"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "TAN_BSC1",
+            "NODE_A_TYPE": "BSC",
+            "NODE_B": "AGA-MCO1/CISCO7606-S/01",
+            "NODE_B_TYPE": "IP_EQUIP"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "TAN_BSC1",
+            "NODE_A_TYPE": "BSC",
+            "NODE_B": "AGA-MCO1/WS-C3560G-48TS-E/01",
+            "NODE_B_TYPE": "IP_EQUIP"
+        },
+        {
+            "REGION": "Marrackech",
+            "NODE_A": "TAN_BSC1",
+            "NODE_A_TYPE": "BSC",
+            "NODE_B": "OUJ-1003/CX600-X2-M8/01",
+            "NODE_B_TYPE": "IP_EQUIP"
+        },
+        {
+            "REGION": "Tanger",
+            "NODE_A": "TAN_BSC2",
+            "NODE_A_TYPE": "BSC",
+            "NODE_B": "LAA-1002",
+            "NODE_B_TYPE": "AGGREGATE_SITE"
+        },
+        {
+            "REGION": "Agadir",
+            "NODE_A": "IP_Could",
+            "NODE_A_TYPE": "IP_Could",
+            "NODE_B": "TAN_BSC3",
+            "NODE_B_TYPE": "BSC"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "IP_Could",
+            "NODE_A_TYPE": "IP_Could",
+            "NODE_B": "RAB_RNC1",
+            "NODE_B_TYPE": "RNC"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "IP_Could",
+            "NODE_A_TYPE": "IP_Could",
+            "NODE_B": "TAN_BSC1",
+            "NODE_B_TYPE": "BSC"
+        },
+        {
+            "REGION": "Marrackech",
+            "NODE_A": "IP_Could",
+            "NODE_A_TYPE": "IP_Could",
+            "NODE_B": "RAB_RNC1",
+            "NODE_B_TYPE": "RNC"
+        },
+        {
+            "REGION": "Marrackech",
+            "NODE_A": "IP_Could",
+            "NODE_A_TYPE": "IP_Could",
+            "NODE_B": "TAN_BSC1",
+            "NODE_B_TYPE": "BSC"
+        },
+        {
+            "REGION": "Tanger",
+            "NODE_A": "IP_Could",
+            "NODE_A_TYPE": "IP_Could",
+            "NODE_B": "RAB_RNC2",
+            "NODE_B_TYPE": "RNC"
+        },
+        {
+            "REGION": "Tanger",
+            "NODE_A": "IP_Could",
+            "NODE_A_TYPE": "IP_Could",
+            "NODE_B": "TAN_BSC2",
+            "NODE_B_TYPE": "BSC"
+        },
+        {
+            "REGION": "Agadir",
+            "NODE_A": "OUJ-1001/AN-80i/01",
+            "NODE_A_TYPE": "IP_EQUIP",
+            "NODE_B": "OUJ-1001",
+            "NODE_B_TYPE": "AGGREGATE_SITE"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "AGA-MCO1/CISCO7606-S/01",
+            "NODE_A_TYPE": "IP_EQUIP",
+            "NODE_B": "AGA-MCO1",
+            "NODE_B_TYPE": "AGGREGATE_SITE"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "AGA-MCO1/WS-C3560G-48TS-E/01",
+            "NODE_A_TYPE": "IP_EQUIP",
+            "NODE_B": "AGA-MCO1",
+            "NODE_B_TYPE": "AGGREGATE_SITE"
+        },
+        {
+            "REGION": "Marrackech",
+            "NODE_A": "OUJ-1003/CX600-X2-M8/01",
+            "NODE_A_TYPE": "IP_EQUIP",
+            "NODE_B": "OUJ-1003",
+            "NODE_B_TYPE": "AGGREGATE_SITE"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "RAB_RNC1",
+            "NODE_A_TYPE": "RNC",
+            "NODE_B": "AGA-MCO1/CISCO7606-S/01",
+            "NODE_B_TYPE": "IP_EQUIP"
+        },
+        {
+            "REGION": "Casablanca",
+            "NODE_A": "RAB_RNC1",
+            "NODE_A_TYPE": "RNC",
+            "NODE_B": "AGA-MCO1/WS-C3560G-48TS-E/01",
+            "NODE_B_TYPE": "IP_EQUIP"
+        },
+        {
+            "REGION": "Marrackech",
+            "NODE_A": "RAB_RNC1",
+            "NODE_A_TYPE": "RNC",
+            "NODE_B": "OUJ-1003/CX600-X2-M8/01",
+            "NODE_B_TYPE": "IP_EQUIP"
+        },
+        {
+            "REGION": "Tanger",
+            "NODE_A": "RAB_RNC2",
+            "NODE_A_TYPE": "RNC",
+            "NODE_B": "LAA-1002",
+            "NODE_B_TYPE": "AGGREGATE_SITE"
+        }
+    ]
+}

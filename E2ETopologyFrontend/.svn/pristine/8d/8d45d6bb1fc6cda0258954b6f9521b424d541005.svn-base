@@ -1,0 +1,60 @@
+/*
+Data Matrix header group coloring
+*/
+
+
+.handsontable THEAD TH.primary {
+  background: rgb(152,51,102);
+  color: #fff;
+}
+
+.handsontable THEAD TH.abis {
+  background: rgb(141,180,226);
+}
+
+.handsontable THEAD TH.info {
+  background: rgb(78,55,100);
+  color: #fff;
+}
+
+.handsontable THEAD TH.dates {
+  background: rgb(236,167,44);
+  color: #fff;
+}
+
+.handsontable THEAD TH.radio {
+  background: rgb(136,126,150);
+  color: #fff;
+}
+
+.handsontable THEAD TH.local {
+  background: rgb(249,133,65);
+  color: #fff;
+}
+
+.handsontable THEAD TH.nodal {
+  background: rgb(206,214,92);
+}
+
+.handsontable THEAD TH.site3g {
+  background: rgb(52,103,92);
+  color: #fff;
+}
+
+.handsontable THEAD TH.site4g {
+  background: rgb(192,196,200);
+}
+
+.handsontable THEAD TH.bsc {
+  background: rgb(112,139,117);
+  color: #fff;
+}
+
+.handsontable THEAD TH.rnc {
+  background: rgb(248,249,145);
+}
+
+.handsontable THEAD TH.site2g {
+  background: rgb(252,100,77);
+  color: #fff;
+}

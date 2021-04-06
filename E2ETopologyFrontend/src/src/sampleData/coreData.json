@@ -1,0 +1,148 @@
+{
+  "data": [
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "182955",
+      "CONTROLLER_NAME": "test",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "182960",
+      "CONTROLLER_NAME": "FES_EB2",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "38",
+      "CONTROLLER_NAME": "CAS_BSC7",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "39",
+      "CONTROLLER_NAME": "LAA_BSC1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "1",
+      "CONTROLLER_NAME": "AGA_BSC2",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "RNC",
+      "CONTROLLER_INST_ID": "33",
+      "CONTROLLER_NAME": "CAS_RNC2",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "RNC",
+      "CONTROLLER_INST_ID": "178381",
+      "CONTROLLER_NAME": "MEK_ER1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "21",
+      "MGW_NAME": "Test_MGW_1",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "RNC",
+      "CONTROLLER_INST_ID": "178382",
+      "CONTROLLER_NAME": "OUJ_ER1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "182955",
+      "CONTROLLER_NAME": "test",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "182958",
+      "CONTROLLER_NAME": "BRK_EB1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "182959",
+      "CONTROLLER_NAME": "FES_EB1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "182960",
+      "CONTROLLER_NAME": "FES_EB2",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "BSC",
+      "CONTROLLER_INST_ID": "182961",
+      "CONTROLLER_NAME": "MEK_EB1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "RNC",
+      "CONTROLLER_INST_ID": "34",
+      "CONTROLLER_NAME": "MAR_RNC1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "RNC",
+      "CONTROLLER_INST_ID": "35",
+      "CONTROLLER_NAME": "RAB_RNC1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    },
+    {
+      "MGW_INST_ID": "22",
+      "MGW_NAME": "Test_MGW_2",
+      "MGW_STATUS": "ACTIVE",
+      "CONTROLLER_TYPE": "RNC",
+      "CONTROLLER_INST_ID": "36",
+      "CONTROLLER_NAME": "MEK_RNC1",
+      "CONTROLLER_STATUS": "ACTIVE"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "welcomeTo": "Welcome to",
+  "appName": "E2E Topology View",
+  "usernameInput": "Username",
+  "passwordInput": "Password",
+  "loginButtonText": "Login",
+  "logoutButtonText": "Logout",
+  "helpButtonText": "Help",
+  "languageButtonText": "Change language",
+  "loginError": "Please verify your credentials",
+  "en": "FR",
+  "notFound": "The page you are try to looking for is not reachable !",
+  "forbiddenAccess": "The page you are try to reach is not accessible for you !",
+  "backTo": "Back to main page",
+  "maximize": "Maximize",
+  "import": "Import",
+  "export": "Export",
+  "upload": "Upload",
+  "validate": "Validate",
+  "noFileChosen": "No File Chosen",
+  "importDataMatrixFile": "Import Data Matrix File",
+  "exportDataMatrixFile": "Export Data Matrix File",
+  "coreTopology" : "Core Topology",
+  "ranTopology" : "Ran Topology",
+  "wdmTopology" : "WDM Topology",
+  "aggregSiteNoData": "This aggregation site has no connected radio sites !",
+  "routes": [
+    {
+      "title": "Connectivity Matrix",
+      "path": "/matrix",
+      "icon": "icon icon-table"
+    },
+    {
+      "title": "Ran Topology",
+      "path": "/ran",
+      "icon": "icon icon-routing"
+    },
+    {
+      "title": "WDM Topology",
+      "path": "/wdm",
+      "icon": "icon icon-network"
+    },
+    {
+      "title": "Core Topology",
+      "path": "/core",
+      "icon": "icon icon-node"
+    }
+  ],
+  "matrixViewToolbar": [
+    {
+      "id": "import",
+      "title": "Import",
+      "icon": "icon-download-save",
+      "btnClass": "primary",
+      "clickEvent": "import",
+      "showMe": true
+    },
+    {
+      "id": "export",
+      "clickEvent" : "export",
+      "title": "Export",
+      "icon": "icon-upload",
+      "btnClass": "primary",
+      "showMe": true
+    },
+    {
+      "id": "new",
+      "clickEvent" : "new",
+      "title": "New",
+      "icon": "icon-plus",
+      "btnClass": "success",
+      "showMe": true
+    },
+    {
+      "id": "edit",
+      "clickEvent": "edit",
+      "title": "Edit",
+      "icon": "icon-edit",
+      "btnClass": "secondary",
+      "showMe": true
+    },
+    {
+      "id": "saveOptions",
+      "title": "Save Options",
+      "icon": "icon-save",
+      "btnClass": "warning",
+      "showMe": false,
+      "children": [
+        {
+          "id": "save",
+          "title": "Save",
+          "icon": "icon-check",
+          "class": "dropdown-item text-primary",
+          "clickEvent": "save",
+          "showOnNewRow": true
+        },
+        {
+          "id": "saveRevision",
+          "title": "Save as revision",
+          "icon": "icon-time",
+          "class": "dropdown-item text-success",
+          "clickEvent": "save-history",
+          "showOnNewRow": false
+        },
+        {
+          "id": "cancel",
+          "title": "Cancel",
+          "icon": "icon-cross",
+          "class": "dropdown-item text-danger",
+          "clickEvent": "cancel",
+          "showOnNewRow": true
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "clickEvent": "history",
+      "title": "Revision",
+      "icon": "icon-restore",
+      "btnClass": "dark",
+      "showMe": true
+    }
+  ],
+  "ranViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "coreViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "wdmViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "ranSecondViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "validationMessageBoxTitle": "Validation Error",
+  "validationErrorMessages": {
+    "aggregSiteNotExists": "New Aggregation Site not exists in DB!",
+    "invalidNumber": "Value is not a valid number !",
+    "invalidIP": "Ip address format is not valid !"
+  }
+}

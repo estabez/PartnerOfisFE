@@ -1,0 +1,162 @@
+{
+  "welcomeTo": "Bienvenue à",
+  "appName": "E2E Topology View",
+  "usernameInput": "Nom d'utilisateur",
+  "passwordInput": "Mot de passe",
+  "loginButtonText": "S'identifier",
+  "logoutButtonText": "Se déconnecter",
+  "helpButtonText": "Aidez-moi",
+  "languageButtonText": "Changer de langue",
+  "loginError": "Veuillez vérifier vos informations d'identification",
+  "fr": "EN",
+  "notFound": "La page que vous essayez de rechercher n'est pas accessible !",
+  "forbiddenAccess": "La page que vous essayez d'accéder n'est pas accessible pour vous !",
+  "backTo": "Retour à la page d'accueil",
+  "maximize": "Maximiser",
+  "import": "Importation",
+  "export": "Exportation",
+  "upload": "Télécharger",
+  "validate": "Valider",
+  "noFileChosen": "Aucun Fichier Choisi",
+  "importDataMatrixFile": "Importer un fichier Data Matrix",
+  "exportDataMatrixFile": "Exporter un fichier Data Matrix",
+  "coreTopology" : "Topologie Core",
+  "ranTopology" : "Topologie Ran",
+  "wdmTopology" : "Topologie WDM",
+  "aggregSiteNoData": "Ce site d'agrégation n'a pas de sites radio connectés!",
+  "routes": [
+    {
+      "title": "Matrice de connectivité",
+      "path": "/matrix",
+      "icon": "icon icon-table"
+    },
+    {
+      "title": "Topologie Ran",
+      "path": "/ran",
+      "icon": "icon icon-routing"
+    },
+    {
+      "title": "Topologie WDM",
+      "path": "/wdm",
+      "icon": "icon icon-network"
+    },
+    {
+      "title": "Topologie Core",
+      "path": "/core",
+      "icon": "icon icon-node"
+    }
+  ],
+  "matrixViewToolbar": [
+    {
+      "id": "import",
+      "title": "Importation",
+      "icon": "icon-download-save",
+      "btnClass": "primary",
+      "clickEvent": "import",
+      "showMe": true
+    },
+    {
+      "id": "export",
+      "title": "Exportation",
+      "icon": "icon-upload",
+      "btnClass": "primary",
+      "clickEvent": "export",
+      "showMe": true
+    },
+    {
+      "id": "new",
+      "title": "Nouveau",
+      "icon": "icon-plus",
+      "btnClass": "success",
+      "clickEvent": "new",
+      "showMe": true
+    },
+    {
+      "id": "edit",
+      "title": "Éditer",
+      "icon": "icon-edit",
+      "btnClass": "secondary",
+      "clickEvent": "edit",
+      "showMe": true
+    },
+    {
+      "id": "saveOptions",
+      "title": "Enregistrer les Options",
+      "icon": "icon-save",
+      "btnClass": "info",
+      "showMe": false,
+      "children": [
+        {
+          "id": "save",
+          "title": "Enregistrer",
+          "icon": "icon-check",
+          "class": "dropdown-item text-primary",
+          "clickEvent": "save",
+          "showOnNewRow": true
+        },
+        {
+          "id": "saveRevision",
+          "title": "Enregistrer par Révision",
+          "icon": "icon-time",
+          "class": "dropdown-item text-success",
+          "clickEvent": "save-history",
+          "showOnNewRow": false
+        },
+        {
+          "id": "cancel",
+          "title": "Annuler",
+          "icon": "icon-cross",
+          "class": "dropdown-item text-warning",
+          "clickEvent": "cancel",
+          "showOnNewRow": true
+        }
+      ]
+    },
+    {
+      "id": "revision",
+      "title": "Révision",
+      "icon": "icon-restore",
+      "btnClass": "dark",
+      "clickEvent": "history",
+      "showMe": true
+    }
+  ],
+  "ranViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "coreViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "wdmViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "ranSecondViewToolbar": [
+    {
+      "title": "Instantané",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "validationMessageBoxTitle": "Validation Error",
+  "validationErrorMessages": {
+    "aggregSiteNotExists": "Le nouveau site d'agrégation n'existe pas dans la base de données!",
+    "invalidNumber": "La valeur n'est pas un nombre valide!",
+    "invalidIP": "Le format d'adresse IP n'est pas valide!"
+  }
+}
