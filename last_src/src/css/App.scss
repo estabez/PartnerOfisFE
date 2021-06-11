@@ -1,0 +1,578 @@
+@import "colors";
+@import "mixins";
+@import "keyFrames";
+@import "fonts/ericsson-fonts.css";
+@import "icons";
+@import "matrixHeaderColoring";
+@import "progressBar";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Ericsson Hilda", 'sans-serif';
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(#{map-get($color, 'layer2')}, #{map-get($color, 'layer1')});
+
+}
+// default app id
+#root {
+  height: 100%;
+  display: flex;
+  z-index: 1;
+  //position: relative;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#root-bg {
+  background: url('../images/bg.png') no-repeat;
+  -webkit-background-size: 70%, 20%;
+  background-size: 70%, 20%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  z-index: -1;
+  -webkit-filter: grayscale(100%) opacity(10%);
+  filter: grayscale(100%) opacity(10%);
+
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* =================================================================================
+    Labels & Buttons Theme
+    ================================================================================= */
+.btn {
+  @include no-radius();
+  &:focus,
+  &:active {
+    outline: none !important;
+    box-shadow: none;
+    border: 1px transparent solid !important;
+  }
+}
+/*.btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active, .show > .btn-warning.dropdown-toggle*/
+.btn-danger {
+  background-color: #{map-get($color, 'brand-red')};
+}
+/*.btn-success {
+  background-color: #{map-get($color, 'brand-green')};
+}*/
+.btn-warning {
+  background-color: #{map-get($color, 'brand-yellow')};
+  &:active,
+  &:focus,
+  &.focus {
+    @include resetFocusing('brand-yellow')
+  }
+
+}
+.btn-light{
+  background-color: #{map-get($color, 'btn-light')};
+
+  &:active,
+  &:focus,
+  &.focus {
+    @include resetFocusing('btn-light')
+  }
+
+}
+.btn-primary {
+  background-color: #{map-get($color, 'brand-blue')};
+}
+.btn-link {
+  color: #{map-get($color, 'brand-blue')};
+}
+/* =================================================================================
+Modal
+================================================================================= */
+.modal-xxl {
+  width: 95%;
+  max-width: 95%;
+
+  .modal-content {
+    height: 90vh;
+
+    .modal-body {
+      height: 80%;
+
+      .modal-border {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+      }
+    }
+  }
+}
+
+/* =================================================================================
+    Alert Box Theme
+    ================================================================================= */
+/*.alert {
+  &.alert-info {
+    background-color: #{map-get($color, 'brand-blue')};
+    color: #{map-get($color, 'brand-white')};
+  }
+  &.alert-danger {
+    background-color: #{map-get($color, 'brand-red')};
+    color: #{map-get($color, 'brand-white')};
+  }
+}*/
+
+/* =================================================================================
+    LOGO
+================================================================================= */
+.logo {
+  background: url('../images/inwi.png') no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+  display: flex;
+  width: 150px;
+  height: 35px;
+}
+
+/* =================================================================================
+    LOGIN VIEW
+================================================================================= */
+.login-card {
+  @include shadow(50px, map-get($color, "normal-gray"));
+}
+
+/* =================================================================================
+    HEADER
+================================================================================= */
+// header and sidebar opacity
+$head_side_opacity: .9;
+$head_side_bg: 'head';
+header {
+  height: 60px;
+  background: rgba(map-get($color, $head_side_bg), $head_side_opacity);
+
+  .user-info {
+    .btn {
+      @include no-radius;
+      height: 60px;
+      min-width: 61px;
+    }
+
+    .btn-link:hover,
+    .btn-link:active,
+    .btn-link:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+/* =================================================================================
+    SIDEBAR
+================================================================================= */
+.sidebar {
+  //max-width: 5.333337%;
+  //width: 5.333337%;
+  background: rgba(map-get($color, 'sidebar-bg'), 1);
+  //background: linear-gradient(#{map-get($color, 'layer2')}, transparent);
+
+  ul {
+
+    li {
+      background-color: transparent;
+      box-sizing: border-box;
+
+      &.list-group-item {
+        padding: 0;
+        border:none;
+
+        &.disabled,
+        &:disabled {
+          background-color: transparent;
+        }
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        font-size: 20px;
+        padding: 10px 0;
+        text-align: center;
+        color: map-get($color, "sidebar-text");
+        box-sizing: border-box;
+
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        -ms-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+      }
+
+      &:hover {
+
+        a {
+          &:hover,
+          &:focus {
+            -webkit-transform: scale(1.4);
+            -moz-transform: scale(1.4);
+            -ms-transform: scale(1.4);
+            -o-transform: scale(1.4);
+            transform: scale(1.4);
+            color: rgba(map-get($color, "sidebar-text"), .7);
+          }
+        }
+      }
+    }
+  };
+}
+
+/* =================================================================================
+    CONTENT AREA
+================================================================================= */
+.content {
+  .fixedCard {
+    height: calc(100vh - 125px);
+  }
+  .fixedCardHelpPage {
+    height: calc(100vh - 90px);
+
+    iframe {
+      border: none;
+    }
+  }
+}
+
+.maximized {
+  .fixedCard {
+    height: calc(100vh - 65px);
+  }
+}
+
+.toolbar {
+  .card-body {
+    padding: .4rem;
+  }
+}
+
+.content,
+.maximized {
+  .fixedCard {
+    .card-body {
+      padding: .25rem;
+    }
+    .card-footer {
+      padding: .25rem;
+
+      .pagination {
+        margin: 0;
+      }
+    }
+  }
+
+  //Topology View Headers
+  .topologyViewHeader{
+    line-height: 20px;
+    padding: .3rem;
+    margin: .2rem .2rem .05rem .2rem;
+    border-bottom: 1px map_get($color, 'normal-gray') solid;
+  }
+}
+
+// Empty Data matrix
+.empty-data {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255,255,255,.8);
+  z-index: 160;
+
+  .empty-data-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.pagination {
+  display: inline-flex;
+
+  li {
+
+    &.disabled {
+      a {
+        pointer-events: none;
+        color: map_get($color, 'normal-gray');
+        background-color: map_get($color, 'layer1');
+      }
+    }
+
+    &:not(.disabled) a:hover {
+      color: map_get($color, 'brand-white');
+      background-color: map_get($color, 'brand-blue');
+      border-color: map_get($color, 'brand-blue');
+    }
+
+    a {
+      position: relative;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      margin-left: -1px;
+      line-height: 1.25;
+      color: map_get($color, 'brand-blue');
+      background-color: map_get($color, 'brand-white');
+      border: 1px solid map_get($color, 'light-gray');
+    }
+
+    &.active > a {
+      z-index: 3;
+      color: map_get($color, 'brand-white');
+      background-color: map_get($color, 'brand-blue');
+      border-color: map_get($color, 'brand-blue');
+    }
+  }
+}
+
+/* =================================================================================
+   HandsonTable Override
+================================================================================= */
+.htCore tbody td {
+  min-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.revision-row {
+    color: map-get($color, 'normal-gray');
+    text-decoration: line-through;
+    background-color: map-get($color, 'layer1');
+  }
+
+  &.htInvalid {
+    background-color: rgba(map-get($color, 'brand-red'), 1) !important;
+    color: map_get($color, 'brand-white') !important;
+  }
+}
+
+
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+/* =================================================================================
+    CONTENT AREA --- MESSAGE BOX
+================================================================================= */
+.react-confirm-alert {
+  .card {
+    @include shadow(15px, map_get($color, 'light-gray'));
+
+    .card-body {
+      padding: 35px;
+    }
+  }
+}
+.react-confirm-alert-overlay {
+  z-index: 199 !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* =================================================================================
+HELPER CLASSES
+================================================================================= */
+#hot-display-license-info {
+  display: none;
+}
+.http-status-bg {
+  font-size: 45vh;
+  color: rgba(25, 55, 75, .1);
+  transform: rotate(-62deg);
+  position: fixed;
+  top: 10%;
+  right: 5vh;
+}
+/* =================================================================================
+VIS JS OVERRIDE CLASSES
+================================================================================= */
+.vis-network {
+
+  &:focus {
+    outline: none;
+  }
+
+  .vis-navigation {
+
+    .vis-button{
+      width: 36px !important;
+      height: 36px !important;
+      background-position: center !important;
+
+      -webkit-transform: scale(.7);
+      -moz-transform: scale(.7);
+      -ms-transform: scale(.7);
+      -o-transform: scale(.7);
+      transform: scale(.7);
+
+      &.vis-zoomIn {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACn0lEQVRYR82XX2jOYRTHP++FuBHlYoqkxoa52A1hu1JLK4tpuNVukPwpFFm72DAx5U9hV7tm8y9KpNwgudOa/0qiULTkYssFfdd53p49vXuf5/eu9nPq7a3f85zv+T7nnOc85xTIWQoZ7Wt/HdAALLSfID7b7wkwDPxNxU0lMA84AGwDaiLgb4FrwDngR4xIjMBMYB9wDJgTAwvWR4CTwAVgbDLdcgSqgJvAWk/5HXAbuA98BL7a2nxgMbAB2AQs9XSeAq3A91IkJiOwArgHLDKll0AHcCshvsLcDBwHhCP5BDQDwpkgpQjo5M8945cs/n8yhmAGcB7Y7ZFYDXzzcUICivkjz+2Hgd6MhsPth4Az9lHhWO/nREhABk/bZp18zxSNO3VhOU9MOJRPQFftg2W7YlUPlHO7XNxlFjoT9r4AlgO6HdXAT+n6BLot0fR9i92Acg7YCNyxDS3A3Yi3hHnd9siWSBcJiMgbuz66arUJ2d4GDBjgVmAwQkA2VKSW2P8y2XAeWAkMGYCSTnGKSVYCwhP2QQOWzWFHYCdwxRaagIcx60AlBIT9wLB3AX2OgB9/VbH3AQElnKrcLO/7Gu80Z4Fn3tqoVcswiYWtMEjG88AR6Ad22MJs4HdAoAc4kuAVf8sp4GigI+xf9k022/8bArmHIPckzP0aKhdeW7czHYVIRU9luViI3LXQmy+Z9lIso7k/RiKR63MsArk3JCIRtmSXgf2R975UkSzVkq0Km9PUpvSV9QrqkmNDhzDVBaspVaZLMjWl7jTyxA1gnXc8PVIpbbnefCcVteVOWTmx1waTuRkfI7VeJ4CLlQ4mvj1dUeXB9sTR7KqNZuN9XzmJjWahrvZr2GgEFgTD6RfgsQ0fsTwp4mYlEDtQ5vV/zE24IUnjVckAAAAASUVORK5CYII=') !important;
+        bottom: 0px !important;
+        right:0px !important;
+      }
+
+      &.vis-zoomOut {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACe0lEQVRYR82XS0iVQRTHf3cRtRGFFgVJCFlqtWhjULYKIlr1WOhW3KhED6jAKNpYFtWiFHqsWheUuopCaJMu3EnYQwsiFEowIloULYr/5YyMw71+M9f068Dlwjdz/uc/cx5zToGcpZBoX/t3AC1Arf0EMWO/UWAS+BOLG0tgPXAaaAW2ZYBPAY+AW8B8FpEsAmuBk8AFoDoLLFj/BvQB/cCvcrpLEdgADAJ7POVpYBh4BnwEPtvaRqAOOAgcBrZ6OmPAUWCuFIlyBLYDT4HNpvQauAgMRfhXmEeAy4BwJJ+AQ4BwFkkpAjr5uGf8jvn/d6IL1gC3gW6PxG7gi48TEpDPX3jXfg64mWg43H4WuGEf5Y79fkyEBGTwum3WyY8v07hTF5a7iUWH8gko1T5YtMtXu4DUay/HV+6YAJoAZccW4Ks2+wR6LdD0/ZhlwD+6gCKMMB8boGxd8gmIyDtLH6VaQ0S0p5KTDRWpevtvlA13AzuBV4aooJOfVkKEfcaAZXPSEegE7tnCAWBkJawDwn5u2F3AfUfA97+q2PuAgIJIVW5dJLGfVi3DIBa23CApxoEj8ABot4Uq4Edg6CrQE2ncbbsGnA90hP3dvslmx39DIHcX5B6EuaehYuGtdTurUYhU9FSWFwqRSwu9+bmUYhnN/TESiVyfYxHIvSERibAluwucqqA3KNWSNYfNaWxT+sZ6BXXJWUOHMNUFqylVpEuSmlJXvnUTT4C9Xj3XIxXTluvNd1JRW+6UFRMnbDCpSXyM1HpdAQYqHUx8e0pRxUFb5Gj20EazYt+3lGSNZqGu9mvY2AdsCobTWeClDR9ZcbKAm0og60DJ638Buc6gIUOJrZsAAAAASUVORK5CYII=') !important;
+        bottom: 0px !important;
+        right: 30px !important;
+      }
+
+      &.vis-zoomExtends {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC8UlEQVRYR83XS+hVZRQF8J9RaS8nphNrYO+oIIpmjYQwaBBSQQVq0aAomoTkoygKrJSkQS+CgiIwwhIHDcwGTppFRfTA3lDRpBpoD00jZck+f46He/733JtiGy7cc87+9l7fPutbe585TrDNOcH5TQvgbFyM+TiIr/Ej/p10Q5MAWIjbsApXjUj0Jz7H63gNvw8BMwTAadiA+3HykKCV/BU80gPk5gK5dRyAq2tHl7YS/4V3sBs/V4LzEZ/rkNfT2JdIss86wLfW/Vk5sBQ7cEot/gaPYTv+6KlEqnU7HsRF5bMPd9dGmmVv4aZc9FXgCrxfJIvfc1iLvOchdgZexq0t5/vwQl3PCmABPsHicn4AzwzJ2vHJ5lZjU+v+ejyJWQE8hTW16Pki36EpADRL7kAIeVLd2IgL+l7BInyP0/EDLsSB/5C8WRoibmnx6TucN4oDOW4pU+wevHQMkjchrsc2hKgz1iXhOjyBT3EN/p4SQHYcQZo3bn0XQK5zlj/GL+MWz/L81VLMsSHGCdHYAD0OIVlUMFwaZWcVv7YcLwCDgf8vADyMOxGp7etg0f/Hy2fw7oY4pgJDRSYtNqIyrUVjrsR77ZxDAezHipLQaQDMxQdIj2nk+EicUQDSvZbj3Wky9ayJqL1Yz6IzDzV+bQAz8lhjVqaft48BiFOLO+dWN13S1pg2gCT7tnp58ma+uwsRlWkt8Z9FWnEsjS5qO2NdAJHQ9P20zMYyXDw9AVnb8dPKN9eNn4qEv40DkOf3Iq24sTerGpMMJGm7zc734NoRo9lRJMwrSAUaC+vTDZvu9VUNF2mrIeooO7MI/CgyJ8Yyti/DrlEL2q8gU8otHafL6+jlG6CxlHBnDaXhTJJmeroEN3T0/4s6vh/1AD5Sgcx7N9bkk4Gza2kcUcEQMv+H2D9Fvpz5aEivTdILknxl/S5DBs+ufVjz/hv4dQjSSQC042W+O6dG73ys7EW+AY5i+PEEMCT2IJ9pKzAo+BCnw/0WkDxI3AB+AAAAAElFTkSuQmCC') !important;
+        bottom:25px !important;
+        right:0px !important;
+      }
+
+      &.vis-up {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABM0lEQVR4Xu2Or0tDYRSGXxWZoEGDaZZhESwGg0kwinXrFovC/oIli9gFo8FmMtgEm9i2pkmLMBgMQcYEwV/v4Zw7v+/O7W5udzD4HnjY3XnvPecFAoHBOKCl+HBU7NJP+k2LfpQ+BfoBPS5+QQuNhB36jt/jkVIo77yXClv0DXrwyHk+tF8ptt16e8hs0Ab00InNogIz9Niem3TT8qGxRl+gB87ohM3dAsKp/X+l6zYbmBVagy6+oFNOFi8wSc9tVqerNv83OfoMXXhFp/24rYAgBS9tXqXLTtYXWfoIXXQD/0jEXwWEDL227Iku+XEyi/QeuuCOzvlxi04FhFl6C80foDt7Zh/6YYUuxDKXbgWEeVqGviM7+2IPya2TCgiyQ3alQi8FUiUUCAVCgVAgFAiMPz/hzmJ/p+swbgAAAABJRU5ErkJggg==') !important;
+        bottom: 20px !important;
+        left: 30px !important;
+      }
+
+      &.vis-down {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABNElEQVR4XmNgGAWjgHzAAcT/gfgbugS9wKgDRh0w6oBRBwx/B6QCsSi6IBIg1gEgM0BmkQSyGCCGnwNiATQ5GCDGAYJAfJ4Bog5kJtEA5OrrDBCNR4GYG1UaDAg5gAeIjzNA1FxjwB+aWIEMEN9jgBiwG4jZUaXxOgAkt48BIn8XiKVRpYkHykD8jAFi0AYgZkaSw+UAViDeApV7DMSKqNKkA20gfsMAMXAxEDNBxbE5AOTAVVDxl0CsgSRHETAB4o8MEIOnQ8XQHcAIxPOhYu+A2AAqTjVgB8RfGSAWdDJgOmAKlP8ZiC2gYlQHnkD8kwFiUROUBjmgHYntCFdNIxACxH8YIBYiY5DDvJHU0RQkAPE/BoTlIAeFIiugB8hjgFj+lwHioAEBNUCcjS44CkYBKQAAo6Zif++Y5tsAAAAASUVORK5CYII=') !important;
+        bottom: -5px !important;
+        left: 30px !important;
+      }
+
+      &.vis-left {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGUlEQVR4Xu2Wr0tDYRiFj27iYAaLFi2yIqwYDCbBKFbtKwoD2R8w7GJeWFwxmQw2wabVaBKLCIIIIgoOf52Pg4z3syzsfUW4DzzlHi7nwA33BQoK/jEztJk/jGKeXtEvup1l7tToDVR+SWdt7Eud3kHl53Taxr4s0weo/JRWbezLKn2Cyo/ppI19WacvUPkhLdvYl036BpV36biNfWnQd6j8wEb+tOgnVN7OMnf2oGIP+xiCXfqB3y+PwqEGJBoYfP99G8WxBS1OIzp0zMYxbNBXaESPlmwcwxp9hkYc0Qkbx7BCH6ERJ7Ri4xiW6D004oxO2TiGRXoLjbhA8O/4hwV6DY1IB0k6zcKZw+Ak28myMP70KC0oGBnfNfVijsMpBigAAAAASUVORK5CYII=') !important;
+        bottom: 0px !important;
+        left: 10px !important;
+      }
+
+      &.vis-right {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGklEQVR4Xu2WMUtCYRSG3yxRqMFFl1zERXBpaHASGsW1dhcDQfoB0R7ODo4uTU0NbkGbODo6iYsIQQQRCoqp78cZ4lwICv1OIPeBZ/FBzntx8AIhIXtAjSaDH1pxTdd0QE8DzQT35H3IiCHN6GxDgvYgI8Y0p7MNJ/QFMuKVnulsQ5x2ICPeaUFnG6L0ETLik17obMMhbUNGzGhZZxsOaBMyYkGvdLbjHjJiSSs6/Yxb7L60a79oHb/A1wDnHYy5hRxe0ZtA804DcvxPv/8uiNAW5PicXurslyP6ADk+pSWd/RKjT5DjH7Sos1+O6TPk+Bs919kv7u+4Czk+oXmd/ZLC9wvJiGZ19k8Vcty9kqUDzYx/fSkNCdmaDU0gYo+y8W0QAAAAAElFTkSuQmCC') !important;
+        bottom: 0px !important;
+        left: 50px !important;
+      }
+
+      &:hover, &:active {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+      }
+    }
+  }
+}
+
+/* =================================================================================
+IMPORT MODAL
+================================================================================= */
+.import-file {
+  .choose-file-wrapper {
+    border: 1px solid map_get($color, "layer1");
+    display: block;
+    width: 100%;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    background: transparent;
+    text-align: center;
+
+    .chose-file {
+      background: transparent;
+      border: none;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-size: 25px;
+      line-height: 3em;
+      color: map_get($color, "brand-white");
+      background: map_get($color, "brand-blue");
+
+      &:active,
+      &:focus,
+      &:visited {
+        color: map_get($color, 'layer2') !important;
+      }
+    }
+    h4 {
+      line-height: 3em;
+      color: map_get($color, 'normal-gray')
+    }
+    &:hover {
+      border-color: map_get($color, "layer2");
+    }
+  }
+
+  .icon {
+    vertical-align: top;
+  }
+
+  .progressWrapper {
+    height: 30px;
+    margin: 10px 0 10px 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0;
+    background-color: map_get($color, "layer2");
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+
+    span {
+      position: absolute;
+      z-index: 1;
+      color: white;
+      transform: translateX(-50%);
+      top: 5px;
+    }
+
+    .progressBar {
+      position: absolute;
+      float: none;
+      height: 100%;
+      background-color: map_get($color, "brand-green");
+      -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, .15);
+      -moz-box-shadow: inset 0 0 20px rgba(0, 0, 0, .15);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, .15);
+
+      -webkit-transition: width .6s ease;
+      -moz-transition: width .6s ease;
+      -ms-transition: width .6s ease;
+      -o-transition: width .6s ease;
+      transition: width .6s ease;
+    }
+  }
+}
+
+/* =================================================================================
+SPINNER
+================================================================================= */
+.spinner{
+  background-color: rgba(map_get($color,'layer0'),.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15000;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+

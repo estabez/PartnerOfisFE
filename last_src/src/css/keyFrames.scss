@@ -1,0 +1,45 @@
+
+
+@mixin ani ($name) {
+  @keyframes logoFader {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+/*
+@mixin blinker() {
+  @keyframes ani {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  animation: ani infinite 3s linear;
+}*/
+@mixin blinker($color1, $color2) {
+  @keyframes ani {
+    0% {
+      background-color: $color1;
+    }
+    50% {
+      background-color: $color2
+    }
+    100% {
+      background-color: $color1
+    }
+  }
+  animation: ani infinite 5s linear;
+}

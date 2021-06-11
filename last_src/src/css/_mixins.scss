@@ -1,0 +1,52 @@
+
+@mixin padding($val, $dir) {
+  @if $dir {
+    padding-#{$dir}: $val
+  } @else {
+    padding: $val;
+  }
+}
+
+@mixin margin($val, $dir) {
+  @if $dir {
+    margin-#{$dir}: $val
+  } @else {
+    margin: $val;
+  }
+}
+
+@mixin shadow($blur, $color) {
+  -webkit-box-shadow: 0 0 $blur $color;
+  -moz-box-shadow: 0 0 $blur $color;
+  box-shadow: 0 0 $blur $color;
+
+}
+
+@mixin no-radius() {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+@mixin border($val, $dir) {
+  @if $dir {
+    border-#{$dir}: $val
+  } @else {
+    border: $val;
+  }
+}
+
+@mixin transition($prop, $time) {
+  -webkit-transition: $prop $time;
+  -moz-transition: $prop $time;
+  -ms-transition: $prop $time;
+  -o-transition: $prop $time;
+  transition: $prop $time;
+}
+
+@mixin resetFocusing($c) {
+  background-color: #{map-get($color, $c)};
+  outline: none !important;
+  box-shadow: none;
+  border: 1px transparent solid;
+}

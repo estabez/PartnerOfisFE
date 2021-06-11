@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/PartnerOfis/static/css/main.760e0459.chunk.css",
+    "main.js": "/PartnerOfis/static/js/main.cabc5a23.chunk.js",
+    "main.js.map": "/PartnerOfis/static/js/main.cabc5a23.chunk.js.map",
+    "runtime-main.js": "/PartnerOfis/static/js/runtime-main.93d52182.js",
+    "runtime-main.js.map": "/PartnerOfis/static/js/runtime-main.93d52182.js.map",
+    "static/css/2.4cde444d.chunk.css": "/PartnerOfis/static/css/2.4cde444d.chunk.css",
+    "static/js/2.255ea0a0.chunk.js": "/PartnerOfis/static/js/2.255ea0a0.chunk.js",
+    "static/js/2.255ea0a0.chunk.js.map": "/PartnerOfis/static/js/2.255ea0a0.chunk.js.map",
+    "index.html": "/PartnerOfis/index.html",
+    "precache-manifest.1a9da3d69ff24768f4c976be2af6f206.js": "/PartnerOfis/precache-manifest.1a9da3d69ff24768f4c976be2af6f206.js",
+    "service-worker.js": "/PartnerOfis/service-worker.js",
+    "static/css/2.4cde444d.chunk.css.map": "/PartnerOfis/static/css/2.4cde444d.chunk.css.map",
+    "static/css/main.760e0459.chunk.css.map": "/PartnerOfis/static/css/main.760e0459.chunk.css.map",
+    "static/js/2.255ea0a0.chunk.js.LICENSE.txt": "/PartnerOfis/static/js/2.255ea0a0.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/PartnerOfis/static/media/kaydet.d7e098fb.svg",
+    "static/media/spinner.svg": "/PartnerOfis/static/media/spinner.6e5cbb10.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.93d52182.js",
+    "static/css/2.4cde444d.chunk.css",
+    "static/js/2.255ea0a0.chunk.js",
+    "static/css/main.760e0459.chunk.css",
+    "static/js/main.cabc5a23.chunk.js"
+  ]
+}

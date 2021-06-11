@@ -1,0 +1,210 @@
+{
+  "welcomeTo": "Hoşgeldiniz",
+  "appName": "KolayOto Tedarikçi Portalı",
+  "usernameInput": "Kullanıcı Adı",
+  "passwordInput": "Şifre",
+  "loginButtonText": "Giriş",
+  "logoutButtonText": "Çıkış",
+  "helpButtonText": "Yardım",
+  "languageButtonText": "Dili Değiştir",
+  "snapshotButtonText": "Take Snapshot",
+  "loginError": "Lütfen Kullanıcı adı ve şifrenizi kontrol ediniz",
+  "en": "EN",
+  "notFound": "The page you are try to looking for is not reachable !",
+  "forbiddenAccess": "The page you are try to reach is not accessible for you !",
+  "backTo": "Back to main page",
+  "maximize": "Tam Ekran",
+  "standard": "Standart",
+  "import": "Import",
+  "export": "Export",
+  "upload": "Proceed the import action",
+  "validate": "Validate selected file",
+  "chooseFile": "Please choose a file to import",
+  "noFileChosen": "No File Chosen",
+  "importDataMatrixFile": "Import Data Matrix File",
+  "exportDataMatrixFile": "Export Data Matrix File",
+  "loadByRegion": "Load by Region",
+  "loadByRadioSite": "Load by Radio Site",
+  "coreTopology" : "Core Topology",
+  "ranTopology" : "Ran Topology",
+  "wdmTopology" : "WDM Topology",
+  "aggregSiteNoData": "This aggregation site has no connected radio sites !",
+  "selectNode": "Select a node",
+  "routes": [
+    {
+      "title": "Connectivity Matrix",
+      "path": "/matrix",
+      "icon": "icon icon-table"
+    },
+    {
+      "title": "Ran Topology",
+      "path": "/ran",
+      "icon": "icon icon-routing"
+    },
+    {
+      "title": "WDM Topology",
+      "path": "/wdm",
+      "icon": "icon icon-network"
+    },
+    {
+      "title": "Core Topology",
+      "path": "/core",
+      "icon": "icon icon-node"
+    }
+  ],
+  "matrixToolbar": {
+    "group1": [
+      {
+        "id": "edit",
+        "clickEvent": "edit",
+        "title": "Değiştir",
+        "icon": "icon-edit",
+        "btnClass": "secondary",
+        "showMe": true
+      },
+      {
+        "id": "saveOptions",
+        "title": "Kaydet Seçenekleri",
+        "icon": "icon-save",
+        "btnClass": "warning",
+        "showMe": false,
+        "children": [
+          {
+            "id": "save",
+            "title": "Kaydet",
+            "icon": "icon-check",
+            "class": "dropdown-item text-primary",
+            "clickEvent": "save",
+            "showOnNewRow": true
+          },
+          {
+            "id": "cancel",
+            "title": "İptal",
+            "icon": "icon-cross",
+            "class": "dropdown-item text-danger",
+            "clickEvent": "cancel",
+            "showOnNewRow": true
+          }
+        ]
+      }
+    ]
+  },
+  "ranViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "coreViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "wdmViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "ranSecondViewToolbar": [
+    {
+      "title": "Snapshot",
+      "icon": "icon-camera-photo",
+      "btnClass": "primary",
+      "clickEvent": "snapshot"
+    }
+  ],
+  "validationMessageBoxTitle": "Validation Error",
+  "validationErrorMessages": {
+    "oldAggrSite": "Old aggregation site does not exists in EAI DB!",
+    "newAggrSite": "New aggregation site does not exists in EAI DB!",
+    "radioSite": "Radio site does not exists in EAI DB!",
+    "rncName": "RNC Name does not exists in EAI DB!",
+    "bscName": "BSC Name does not exists in EAI DB!",
+    "invalidNumber": "Value is not a valid number !",
+    "invalidIP": "Ip address format is not valid !"
+  },
+  "validationErrorGeneralMessage": "Action can't be performed because of validation error(s).",
+  "editModeRestrictionTitle": "Edit Mode Restricted",
+  "editModeRestriction": "This row cannot be editable because it's archived !",
+  "mandatoryDataTitle": "Mandatory Data Error",
+  "mandatoryDataText": "Mandatory columns <span class='text-danger'>must be filled</span>.<br>Please check the columns are filled: <hr>{columns}",
+  "saveActionSuccessTitle": "Save Action Successfully",
+  "saveActionFailTitle": "Save Action Failed",
+  "importSection": {
+    "selectedFileLabel": "Selected File: ",
+    "totalRowCount": "Total Rows",
+    "successRowCount": "Success Rows",
+    "failedRowCount": "Failed Rows",
+    "totalRowText": "Total row count of imported excel file",
+    "successRowText": "Total row count of successfully imported",
+    "failedRowText": "Total failed rows count during import action",
+    "rows": "rows",
+    "downloadLogFile": "Download the detailed log file",
+    "summaryLabel": "Summary",
+    "selectedFileValid": "Selected file is valid for proceed the import action.",
+    "selectedFileNotValid": "Validation failed, check your excel file columns titles and try re-import.",
+    "wrongFileExtTitle": "File type error",
+    "wrongFileExt": "File type is not allowed!",
+    "progressError": "An error has occurred, please try again !",
+    "warningTitleForLastStep": "Do you want to continue ?",
+    "warningMessageForLastStep": "All the E2E topology data will be overwritten !",
+    "locksCountForLastStep": "There are {count} lock in E2E topology data. If you choose continue to import data will be unlocked.",
+    "ongoingImportTitle": "Import Process",
+    "ongoingImportText": "Import process was started by {username} and it's still ongoing. Please wait until it's finish and try again little while.",
+    "longTimeWaitMessageForUpload": "Please be patient, import progress takes some time to progressed."
+  },
+  "emptyDataSet": {
+    "matrix": {
+      "title": "Connectivity Matrix Data",
+      "spot": "This page is using for manipulate the imported data to EAI DB.",
+      "text": "It seems you have to do import for the first initialize. Please use the import button which is exist on toolbar."
+    },
+    "ran": {
+      "title": "Ran Topology Diagram",
+      "spot": "This page is showing ran topology diagram first and second level to user.",
+      "text": "It seems there isn't data exist in EAI DB. Please first import the data to EAI DB from connectivity matrix page."
+    },
+    "wdm": {
+      "title": "WDM Topology Diagram",
+      "spot": "This page is showing wdm topology diagram to user.",
+      "text": "It seems there isn't data exist in EAI DB. Please first import the data to EAI DB from connectivity matrix page."
+    },
+    "core": {
+      "title": "Core Topology Diagram",
+      "spot": "This page is showing core topology diagram to user.",
+      "text": "It seems there isn't data exist in EAI DB. Please first import the data to EAI DB from connectivity matrix page."
+    }
+  },
+  "showRevisionText": "Show Archived",
+  "paginationDisabled": "Save your changes or cancel it to back paginate.",
+  "lockModeRestrictionTitle": "Lock/Unlock Restricted",
+  "lockModeRestriction": "You cannot do any lock or unlock for this row because it's archived !",
+  "lockMechanism": {
+    "title": "Row Lock Action",
+    "100": "This row was locked by me at {time}",
+    "110": "This row was locked by {uname} at {time}",
+    "120": "This row is reserved by {uname}, nobody can do manipulation on this row at the moment."
+  },
+  "unlockMechanism": {
+    "title": "Row Unlock Action",
+    "200": "This row was unlocked by me at {time}",
+    "210": "This row was locked by {uname} at {time}. You can not unlock. Please contact with user.",
+    "220": "This row doesn't have any lock information!",
+    "230": "This row explicitly locked by {uname} at {time}. If you want to unlock, please use explicit unlock button on toolbar!"
+  },
+  "lockStatusMessages": {
+    "Locked_Current_User": "Locked by current user",
+    "Locked_Other_User": "Locked by other user",
+    "Not_Locked": "Not locked"
+  },
+  "radioSiteExistsWithSameNameTitle": "Radio Site is exists !",
+  "radioSiteExistsWithSameNameText": "Radio site is exists, if you continue new revision will be created."
+}
