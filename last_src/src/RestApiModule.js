@@ -79,6 +79,10 @@ class RestApiModule {
                 serviceName: process.env.REACT_APP_AUTH_SERVICE,
                 methodName: "/SevkiyatEkle"
             },
+            SaveMultipleRow: {
+                serviceName: process.env.REACT_APP_AUTH_SERVICE,
+                methodName: "/SaveMultipleRow"
+            },
             ranFirst: {
                 serviceName: process.env.REACT_APP_RAN_SERVICE,
                 methodName: "/GetRANTopologyFirstLevelforRegion",

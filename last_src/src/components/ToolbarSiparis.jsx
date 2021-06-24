@@ -41,7 +41,7 @@ class Toolbar extends React.Component {
             token
         }).then(response => {
 
-            console.log(response);
+           // console.log(response);
             const {isImportOngoing} = response;
 
             if (!isImportOngoing.isLock) {
@@ -88,7 +88,7 @@ class Toolbar extends React.Component {
                                 <Link to={'/siparisler'}>
                                     <Button
                                         style={
-                                            {backgroundColor : '#4CAF50',
+                                            {backgroundColor : '#007bbd',
                                                 color : 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
@@ -107,7 +107,7 @@ class Toolbar extends React.Component {
                                 <Link to={'/siparisler'}>
                                     <Button
                                         style={
-                                            {backgroundColor : '#4CAF50',
+                                            {backgroundColor : '#007bbd',
                                                 color : 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
@@ -139,7 +139,7 @@ class Toolbar extends React.Component {
                                     <Button
                                         style={
                                             {
-                                                backgroundColor: '#4CAF50',
+                                                backgroundColor: '#007bbd',
                                                 color: 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
@@ -159,7 +159,7 @@ class Toolbar extends React.Component {
                                     <Button
                                         style={
                                             {
-                                                backgroundColor: '#4CAF50',
+                                                backgroundColor: '#007bbd',
                                                 color: 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
@@ -188,10 +188,11 @@ class Toolbar extends React.Component {
                                 <Button
                                     style={
                                         {
-                                            backgroundColor: '#4CAF50',
+                                            backgroundColor: '#007bbd',
                                             color: 'white',
                                             border: 'none',
                                             display: 'inline-block',
+                                            visibility:'hidden'
                                         }
                                     }
                                     text-align={'center'}

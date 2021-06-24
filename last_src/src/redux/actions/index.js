@@ -12,6 +12,12 @@ export const SET_REGION = 'SET_REGION';
 export const SET_RADIO_SITES = 'SET_RADIO_SITES';
 export const SET_RADIO_SITE = 'SET_RADIO_SITE';
 
+export const SET_ORIGINAL_ROWS = 'SET_ORIGINAL_ROWS';
+export const SET_EDITED_ROWS = 'SET_EDITED_ROWS';
+
+export const SET_IS_DATA_CHANGED = 'SET_IS_DATA_CHANGED';
+
+
 // MODAL CONSTS
 export const MODAL_TOGGLE = 'MODAL_TOGGLE';
 export const MODAL_TITLE = 'MODAL_TITLE';
@@ -75,6 +81,21 @@ export const setCompany = (company) => ({
     company
 });
 
+export const setOriginalRows = (originalRows) => ({
+    type: SET_ORIGINAL_ROWS,
+    originalRows
+});
+
+export const setEditedRows = (editedRows) => ({
+    type: SET_EDITED_ROWS,
+    editedRows
+});
+
+
+export const setIsDataChanged = (isDataChanged) => ({
+    type: SET_IS_DATA_CHANGED,
+    isDataChanged
+});
 export const setOrder = (order) => ({
     type: SET_ORDER,
     order

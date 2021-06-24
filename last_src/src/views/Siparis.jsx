@@ -348,7 +348,7 @@ class WDM extends React.Component {
                                 fontSize: '16px',
                                 fontWeight : 'bold',
                                 border : '1px solid #CDCDCD',
-                                background: '#c8f3a8',
+                                background: '#e2eff9',
                             }}
                             >
 
@@ -567,7 +567,7 @@ class WDM extends React.Component {
                         }>
                             <div style={
                                 {padding : '8px 15px',
-                                    background: '#c8f3a8',
+                                    background: '#e2eff9',
                                     margin:'-10px -18px 18px',
                                     textAlign: 'right'
                                 }}

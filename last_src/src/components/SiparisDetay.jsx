@@ -100,7 +100,7 @@ class SiparisDetay extends React.Component {
         this._isMounted = true;
         this.props.setSpinner();
 
-        console.log(this.state.ilce)
+     //   console.log(this.state.ilce)
 
 
         //default_name
@@ -111,7 +111,7 @@ class SiparisDetay extends React.Component {
                 return a.default_name.localeCompare(b.default_name);
             });
 
-        console.log(this.state.ilce)
+      //  console.log(this.state.ilce)
 
         const order = localStorage.getItem('Order');
         const company = localStorage.getItem('Company');
@@ -432,7 +432,7 @@ console.log(shippingJSONObject["firstName"]);
                 sevkButtonSecim:false,
                 valSelected: this.state.secilenilegöreilceler[idx]
             })
-            console.log("ilce" + this.state.secilenilegöreilceler[idx])
+        //    console.log("ilce" + this.state.secilenilegöreilceler[idx])
         }
 
     }
@@ -456,7 +456,7 @@ console.log(shippingJSONObject["firstName"]);
         }
 
         gecicisecilenilegoreilceliste.push("Lütfen Seçiniz")
-console.log(gecicisecilenilegoreilceliste)
+//console.log(gecicisecilenilegoreilceliste)
         this.setState({
             defaultIl:this.state.il[idx].name,
             secilenilegöreilceler:gecicisecilenilegoreilceliste,
@@ -625,8 +625,8 @@ console.log(gecicisecilenilegoreilceliste)
         const {language, wrapper, tooltipPlacement, showRevision, editOn, isDataExist} = this.props;
         const { ilce,il } = this.state;
 
-        console.log(ilce.length)
-        console.log(ilce[0])
+     //   console.log(ilce.length)
+      //  console.log(ilce[0])
 
 
 

@@ -112,7 +112,22 @@ Modal
     }
   }
 }
+.modal-xxxx {
+  width: 95%;
+  max-width: 95%;
 
+  .modal-content {
+    height: 90vh;
+
+    .modal-body {
+      height: 90%;
+
+      .modal-border {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+      }
+    }
+  }
+}
 /* =================================================================================
     Alert Box Theme
     ================================================================================= */
@@ -576,3 +591,17 @@ SPINNER
   }
 }
 
+
+
+.changedCellBG {
+  background-color: #5bd2ec !important;
+}
+
+
+.NotchangedCellBG {
+  background-color: #e2eff9 !important;
+}
+
+.border-secondary {
+  border-color: #007bbd !important;
+}

@@ -1,17 +1,37 @@
-import React from 'react';
+import React, {createRef} from 'react';
 import {connect} from "react-redux";
-import {Modal, ModalHeader, ModalBody, Col, Row} from 'reactstrap';
+import {Modal, ModalHeader, ModalBody, Col, Row, CardBody, Card, Button} from 'reactstrap';
 import {modalSevkiyatToggle, setOrderID, spinnerToggle, setCancelStatus, modalCancelToggle} from "../redux/actions";
 import RestApiModule from '../RestApiModule';
 import store from "../redux/store";
 
+import {HotTable} from '@handsontable/react';
+import 'handsontable/dist/handsontable.full.css';
+import EmptyDataset from "./EmptyDataset";
+import Spinner from "./Spinner";
 
 class ModalSevkiyat extends React.Component {
+    _isMounted = false;
     constructor(props) {
         super(props);
-        this.restApi = new RestApiModule();
         this.store = store;
+        this.hotTableComponent1 = createRef();
+        this.restApi = new RestApiModule();
+
+        this.addInput = this.addInput.bind(this);
+        this.hot = null;
+        this.columns = [];
+        this.selectedRowCoords = {r: null, c: null};
+        this.editedRowCoords = {r: null, c: null};
         this.state = {
+            a:"b",
+            columns: [
+            ],
+            data: [
+            ],
+            newArrColumns: [],
+            ColumnsInOrderByAPI: ["Detay", "purchaseOrderNumber", "generatedAt", "purchaseOrderStatusId", "purchaseOrderFulfillmentStatusId", "totalCost"],
+            ColumnsInOrder: ["Durum","SKU","Tedarikçi SKU","Ürün İsmi", "Liste Fiyatı", "Satış Fiyatı", "İnd.Oran(%)", "Stok Adet", "T.Adet","T.Sıra", "Ürt.Tar.", "Hz.Sr."],
             fileJSON: [],
             inputValue:null,
             trackingInputValue:null,
@@ -21,6 +41,7 @@ class ModalSevkiyat extends React.Component {
             noteInputValue:null,
             shippedQtyInputValue:null,
             suppressedInputValue:null,
+            table:null
 
         }
 
@@ -32,8 +53,41 @@ class ModalSevkiyat extends React.Component {
     }
 
 
+
+
+    componentDidMount () {
+        this.forceUpdate();
+
+      //  console.log(this.hotTableComponent1.current)
+       // this.hot = this.hotTableComponent1.current.hotInstance;
+        this.columns = [
+            {readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},{readOnly: true},
+        ];
+
+        this.setState({
+
+        })
+
+        if(this.hotTableComponent1.current != null){
+            this.hot = this.hotTableComponent.current.hotInstance;
+
+            this.state.a = this.hotTableComponent.current.hotInstance;
+
+       //     console.log(this.hot)
+       //     console.log("did")
+        }
+
+        this.forceUpdate();
+    }
+
+
     toggle() {
+        this.props.setSpinner();
         this.props.setModalSevkiyat();
+
+
+        window.location.reload();
+
     }
     setStateAsync(state) {
         return new Promise((resolve) => {
@@ -41,17 +95,17 @@ class ModalSevkiyat extends React.Component {
         });
     }
 
-/*
-    componentDidMount () {
-    this.getExportDataJSON();
-    }
 
-*/
+
+    componentWillUnmount() {
+    //    console.log("will")
+    //    console.log(this.hotTableComponent1.current)
+    }
 
     SevkiyatEkleRequest(){
         const company = localStorage.getItem('Company');
-        console.log(this.state.inputValue)
-        console.log(this.props.orderId)
+     //   console.log(this.state.inputValue)
+      //  console.log(this.props.orderId)
         this.restApi.callApi('sevkiyatEkle', {
             company:company,
             purchaseOrderId: this.props.orderId,
@@ -65,7 +119,7 @@ class ModalSevkiyat extends React.Component {
 
         }).then(response => {
 
-            console.log(response)
+       //     console.log(response)
 
 
         }).catch((err) => {
@@ -76,47 +130,174 @@ class ModalSevkiyat extends React.Component {
         this.props.setModalSevkiyat();
     }
 
-    updateTrackingInputValue(evt) {
-        this.setState({
-            trackingInputValue: evt.target.value
-        });
+
+
+
+    handleColumnColor(){
+
+        for(let m = 0; m<13; m++){
+            let columnscolor = document.querySelectorAll('.ht_master tr > td:nth-child(' +m +')');
+            for (let o= 0; o < columnscolor.length; o++) {
+
+                columnscolor[o].style.backgroundColor = 'white';
+            }
+        }
+
+        /*
+
+        let columnscolor = document.querySelectorAll('.ht_master tr > td:nth-child'+ '(3)');
+        for (let o= 0; o < columnscolor.length; o++) {
+
+            columnscolor[o].style.backgroundColor = 'white';
+        }
+
+        let columnscolor1 = document.querySelectorAll('.ht_master tr > td:nth-child(6)');
+        for (let o= 0; o < columnscolor1.length; o++) {
+
+            columnscolor1[o].style.backgroundColor = 'white';
+        }
+
+       let columnscolor2 = document.querySelectorAll('.ht_master tr > td:nth-child(7)');
+       for (let o= 0; o < columnscolor2.length; o++) {
+
+           columnscolor2[o].style.backgroundColor = 'white';
+       }
+       let columnscolor3 = document.querySelectorAll('.ht_master tr > td:nth-child' + '(8)');
+       for (let o= 0; o < columnscolor3.length; o++) {
+
+           columnscolor3[o].style.backgroundColor = 'white';
+       }
+       let columnscolor4= document.querySelectorAll('.ht_master tr > td:nth-child(9)');
+       for (let o= 0; o < columnscolor4.length; o++) {
+
+           columnscolor4[o].style.backgroundColor = 'white';
+       }
+       let columnscolor5= document.querySelectorAll('.ht_master tr > td:nth-child(10)');
+       for (let o= 0; o < columnscolor5.length; o++) {
+
+           columnscolor5[o].style.backgroundColor = 'white';
+       }
+        let columnscolor6= document.querySelectorAll('.ht_master tr > td:nth-child(11)');
+        for (let o= 0; o < columnscolor6.length; o++) {
+
+            columnscolor6[o].style.backgroundColor = 'white';
+        }
+        let columnscolor7= document.querySelectorAll('.ht_master tr > td:nth-child(12)');
+        for (let o= 0; o < columnscolor7.length; o++) {
+
+            columnscolor7[o].style.backgroundColor = 'white';
+        }
+*/
+
     }
 
-    updateCarrierInputValue(evt) {
-        this.setState({
-            carrierInputValue: evt.target.value
-        });
+    addInput(col, TH) {
+
+        this.handleColumnColor();
+
+//console.log(this.hotTableComponent1.current)
+
+        if(this.hotTableComponent1.current != null){
+            this.hot = this.hotTableComponent1.current.hotInstance;
+
+
+
+        if (typeof col !== 'number') {
+            return col;
+        }
+
+        if (col >= 0 && TH.childElementCount < 2) {
+
+            var div = document.createElement('div');
+            var input = document.createElement('input');
+
+            div.className = 'filterHeader';
+
+
+            var filtersPlugin = this.hot.getPlugin('filters');
+
+            input.addEventListener('keydown', function(event) {
+
+                filtersPlugin.removeConditions(col);
+                filtersPlugin.addCondition(col, 'contains', [event.target.value]);
+                filtersPlugin.filter();
+
+
+            });
+            //console.log(TH)
+
+            if(TH.children[0].children[1] != null || TH.children[0].children[1] != undefined){
+                //   console.log(TH.children[0].children[1].innerText)
+                //   console.log(document.getElementsByClassName("colHeader columnSorting sortAction"))
+
+                let kolonAdi = TH.children[0].children[1].innerText;
+
+                if(kolonAdi == 'Ürün İsmi' || kolonAdi == 'SKU' || kolonAdi == 'Tedarikçi SKU'){
+
+                    div.appendChild(input);
+                    TH.appendChild(div);
+                }
+            }
+
+
+
+
+        }
+        }
+
+
     }
 
-    updateShippingMethodInputValue(evt) {
-        this.setState({
-            shippingMethodInputValue: evt.target.value
-        });
+
+    doNotSelectColumn(event, coords){
+        if (coords.row === -1 && event.target.nodeName === 'INPUT') {
+            event.stopImmediatePropagation();
+            this.deselectCell();
+        }
     }
 
-    updateDateShippedInputValue(evt) {
-        this.setState({
-            dateShippedInputValue: evt.target.value
-        });
-    }
-
-    updateNoteInputValue(evt) {
-        this.setState({
-            noteInputValue: evt.target.value
-        });
-    }
-
-    updateShippedQtyInputValue(evt) {
-        this.setState({
-            shippedQtyInputValue: evt.target.value
-        });
-    }
 
     render() {
         const {language} = this.props;
+        const items = []
+    //    console.log(this.props.originalRows)
+     //   console.log(this.props.editedRows)
+
+this.state.data = [];
+if(this.props.originalRows != null){
+    for(let b = 0; b < this.props.originalRows.length; b++){
+     //   console.log(this.props.editedRows[this.props.originalRows[b]])
+
+        const satir = this.props.editedRows[this.props.originalRows[b]]
+
+        satir.push('Kaydedildi');
+
+        satir[11] = satir[10]
+        satir[10] = satir[9]
+        satir[9] = satir[8]
+        satir[8] = satir[7]
+        satir[7] = satir[6]
+        satir[6] = satir[5]
+        satir[5] = satir[4]
+        satir[4] = satir[3]
+        satir[3] = satir[2]
+        satir[2] = satir[1]
+        satir[1] = satir[0];
+        satir[0]='Kaydedildi';
+
+        this.state.data.push(satir);
+       // items.push(<li key={b}>{'SKU: ' + satir[0] + ', Ürün İsmi: ' + satir[2] + ', Satış Fiyatı: ' + satir[4] + ', Stok Adet: ' + satir[6] + ', Üretim Tarihi: ' + satir[9] + ', Hazırlık Süresi: ' + satir[10]}</li>)
+       /* items.push(<li key={b}>{', Ürün İsmi: ' + satir[2]}</li>)
+        items.push(<li key={b}>{', Satış Fiyatı: ' + satir[4]}</li>)
+        items.push(<li key={b}>{', Stok Adet: ' + satir[6]}</li>)
+        items.push(<li key={b}>{', Üretim Tarihi: ' + satir[9]}</li>)
+        items.push(<li key={b}>{', Hazırlık Süresi: ' + satir[10]}</li>)*/
+    }
+}
+
         if (language) {
             return (
-                <Modal isOpen={this.props.open} size={'lx'} centered={true}>
+                <Modal isOpen={this.props.open} size={'xxxx'} centered={true}>
                     <ModalHeader toggle={this.toggle.bind(this)} style={{
                         fontSize:'1.25rem',
                         fontFamily:'proxima-nova,sans-serif',
@@ -126,616 +307,79 @@ class ModalSevkiyat extends React.Component {
                         color:'unset',
                         lineHeight:'1.125',
                         display:'block'
-                    }}>Sevkiyat Ekle</ModalHeader>
+                    }}>Fiyat/Stok Güncelleme Raporu</ModalHeader>
+                    <div>
+                        <span style={{
+                            fontSize:'1.25rem',
+                            fontFamily:'proxima-nova,sans-serif',
+                            fontStyle:'normal',
+                            fontWeight:'300',
+                            marginLeft:'1.5rem',
+                        }}> Değişiklik yapılan satırların listesi aşağıdadır.</span>
+
+                    </div>
+
                     <ModalBody>
-                        <div style={{
-                            columnGap:'0.75rem',
-                            marginLeft:'calc(-1*0.75rem)',
-                            marginRight:'calc(-1*0.75rem)',
-                            display:'flex',
-                            flexWrap:'wrap',
-                            marginBottom:'-.75rem',
-                            marginTop:'-.75rem',
-                            boxSizing:'inherit'
-                        }}>
-                            <div style={{
-                                paddingLeft:'0.75rem',
-                                paddingRight:'0.75rem',
-                                flex:'none',
-                                width:'100%',
-                                display:'block',
-                                padding:'.75rem'
-                            }}>
-                                <div>
-                                    <label style={{
-                                        marginBottom:'.5em',
-                                        color:'#363636',
-                                        display:'block',
-                                        fontSize:'1rem',
-                                        fontWeight:'700'
-                                    }}>Satın Alma Siparişi</label>
-                                    <label style={{
-                                        marginBottom:'.5em',
-                                        marginLeft:'2.25em',
-                                        display:'block',
-                                        fontSize:'1rem',
-                                        fontWeight:'700',
-                                        height:'2.25em',
-                                        textAlign:'1rem',
-                                        color:'#7a7a7a',
-                                        borderRadius:'4px',
-                                        borderColor:'#f5f5f5'
-                                    }}>{this.props.order}</label>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        {/*<Row>
-                            <Col xs={6}>
-                                <div style={{
-                                    paddingLeft:'.75rem',
-                                    paddingRight:'.75rem',
-                                    flex:'none',
-                                    width:'50%',
-                                    display:'block',
-                                    padding:'.75rem'
-                                }}>
-                                    <div>
-                                        <label style={{
-                                            marginBottom:'.5em',
-                                            color:'#363636',
-                                            display:'block',
-                                            fontSize:'1rem',
-                                            fontWeight:'700'
-                                        }}>Takip Numarası</label>
-                                        <input  value={this.state.trackingInputValue} onChange={evt => this.updateTrackingInputValue(evt)} style={{
-
-                                            maxWidth:'100%',
-                                            width:'100%',
-                                            backgroundColor:'#fff',
-                                            borderColor:'#dbdbdb',
-                                            borderRadius:'4px',
-                                            color:'#363636',
-                                            alignItems:'center',
-                                            border:'1px solid #dbdbdb',
-                                            fontSize:'1rem',
-                                            height:'2.25em',
-                                            lineHeight:'1.5',
-                                            padding:'calc(.375em - 1px) calc(.625em - 1px)',
-                                            position:'relative',
-                                            verticalAlign:'top',
-                                            fontFamily:'proxima-nova,sans-serif',
-                                            margin:'0'
-
-                                        }}/>
-                                    </div>
-                                </div>
-
-
-
-                            </Col>
-
-                            <Col xs={6}>
-
-                                <div style={{
-                                    paddingLeft:'.75rem',
-                                    paddingRight:'.75rem',
-                                    flex:'none',
-                                    width:'50%',
-                                    display:'block',
-                                    padding:'.75rem',
-
-                                }}>
-                                    <div>
-                                        <label style={{
-                                            marginBottom:'.5em',
-                                            color:'#363636',
-                                            display:'block',
-                                            fontSize:'1rem',
-                                            fontWeight:'700'
-                                        }}>Suppressed</label>
-                                        <div style={{
-                                            boxSizing:'border-box',
-                                            clear:'both',
-                                            fontSize:'1rem',
-                                            position:'relative',
-                                            textAlign:'left'
-                                        }}>
-                                            <div style={{
-                                                marginBottom:'-.5rem',
-                                                flexWrap:'nowrap',
-                                                alignItems:'center',
-                                                display:'flex',
-                                                justifyContent:'flex-start'
-                                            }}>
-                                        <span style={{
-                                            zIndex:'3',
-                                            borderBottomRightRadius:'0',
-                                            borderTopRightRadius:'0',
-                                            marginRight:'-1px',
-                                            marginBottom:'.5rem',
-                                            backgroundColor:'#40c0bd',
-                                            borderColor:'transparent',
-                                            color:'#fff',
-                                            borderWidth:'1px',
-                                            cursor:'pointer',
-                                            textAlign:'center',
-                                            padding:'calc(.375em - 1px) .75em',
-                                            whiteSpace:'nowrap'
-                                        }}>Hayır</span>
-                                                <span style={{
-                                                    zIndex:'3',
-                                                    borderBottomRightRadius:'0',
-                                                    borderTopRightRadius:'0',
-                                                    marginRight:'-1px',
-                                                    marginBottom:'.5rem',
-                                                    backgroundColor:'#fff',
-                                                    borderColor:'transparent',
-                                                    color:'#363636',
-                                                    borderWidth:'1px',
-                                                    cursor:'pointer',
-                                                    textAlign:'center',
-                                                    padding:'calc(.375em - 1px) .75em',
-                                                    whiteSpace:'nowrap'
-                                                }}>Evet</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </Col>
-
-                        </Row>*/}
-
-
-
-
-                        {/*<Row>
-                            <Col xs={6}>
-                                <div style={{
-                                    paddingLeft:'.75rem',
-                                    paddingRight:'.75rem',
-                                    flex:'none',
-                                    width:'50%',
-                                    display:'block',
-                                    padding:'.75rem',
-                                }}>
-                                    <div>
-                                        <label style={{
-                                            marginBottom:'.5em',
-                                            color:'#363636',
-                                            display:'block',
-                                            fontSize:'1rem',
-                                            fontWeight:'700'
-                                        }}>Kargo Şirketi</label>
-                                        <input  value={this.state.carrierInputValue} onChange={evt => this.updateCarrierInputValue(evt)} style={{
-
-                                            maxWidth:'100%',
-                                            width:'100%',
-                                            backgroundColor:'#fff',
-                                            borderColor:'#dbdbdb',
-                                            borderRadius:'4px',
-                                            color:'#363636',
-                                            alignItems:'center',
-                                            border:'1px solid #dbdbdb',
-                                            fontSize:'1rem',
-                                            height:'2.25em',
-                                            lineHeight:'1.5',
-                                            padding:'calc(.375em - 1px) calc(.625em - 1px)',
-                                            position:'relative',
-                                            verticalAlign:'top',
-                                            fontFamily:'proxima-nova,sans-serif',
-                                            margin:'0'
-
-                                        }}/>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xs={6}>
-                                <div style={{
-                                    paddingLeft:'.75rem',
-                                    paddingRight:'.75rem',
-                                    flex:'none',
-                                    width:'50%',
-                                    display:'block',
-                                    padding:'.75rem',
-                                }}>
-                                    <div>
-                                        <label style={{
-                                            marginBottom:'.5em',
-                                            color:'#363636',
-                                            display:'block',
-                                            fontSize:'1rem',
-                                            fontWeight:'700'
-                                        }}>Sevkiyat Methodu</label>
-                                        <input  value={this.state.shippingMethodInputValue} onChange={evt => this.updateShippingMethodInputValue(evt)} style={{
-
-                                            maxWidth:'100%',
-                                            width:'100%',
-                                            backgroundColor:'#fff',
-                                            borderColor:'#dbdbdb',
-                                            borderRadius:'4px',
-                                            color:'#363636',
-                                            alignItems:'center',
-                                            border:'1px solid #dbdbdb',
-                                            fontSize:'1rem',
-                                            height:'2.25em',
-                                            lineHeight:'1.5',
-                                            padding:'calc(.375em - 1px) calc(.625em - 1px)',
-                                            position:'relative',
-                                            verticalAlign:'top',
-                                            fontFamily:'proxima-nova,sans-serif',
-                                            margin:'0'
-
-                                        }}/>
-                                    </div>
-                                </div>
-
-                            </Col>
-                        </Row>*/}
-
-
-
-
-
-
-                        {/*<div style={{
-                            columnGap:'0.75rem',
-                            marginLeft:'calc(-1*0.75rem)',
-                            marginRight:'calc(-1*0.75rem)',
-                            display:'flex',
-                            flexWrap:'wrap',
-                            marginBottom:'-.75rem',
-                            marginTop:'-.75rem',
-                            boxSizing:'inherit'
-                        }}>
-                            <div style={{
-                                paddingLeft:'0.75rem',
-                                paddingRight:'0.75rem',
-                                flex:'none',
-                                width:'100%',
-                                display:'block',
-                                padding:'.75rem'
-                            }}>
-                                <div>
-                                    <label style={{
-                                        marginBottom:'.5em',
-                                        color:'#363636',
-                                        display:'block',
-                                        fontSize:'1rem',
-                                        fontWeight:'700'
-                                    }}>Sevkiyat Tarihi</label>
-                                    <div>
-
-
-                                            <input
-                                                type="date"
-                                                format="YYYY-MM-DD"
-                                                id="start_date"
-
-                                                style={{
-                                                    width:'30%',
-                                                    height:'100%'
-                                                }}
-
-                                                value={this.state.dateShippedInputValue} onChange={evt => this.updateDateShippedInputValue(evt)}
-                                            />
-
-                                    </div>
-                                </div>
-                            </div>
+                        {/*<div>
+                            {items}
                         </div>*/}
 
+                        <Card className={'mt-1 fixedCard'}>
+                            <CardBody>
+                                <HotTable ref={this.hotTableComponent1} id={'hot'}
+                                          data={this.state.data}
+                                          stretchH={'all'}
+                                          autoRowSize={true}
+                                          autoWrapRow={true}
+                                          dropdownMenu={true}
+                                          filters={true}
+                                          manualColumnResize={true}
+                                          columnSorting={true}
+                                          colHeaders={this.state.ColumnsInOrder}
+                                          columns={this.columns}
+                                          rowHeaders={true}
+                                          width={'100%'}
+                                          height={'550px'}
+                                          licenseKey="non-commercial-and-evaluation"
+                                          afterGetColHeader={this.addInput}
+                                          beforeOnCellMouseDown={this.doNotSelectColumn}
+                                          columnHeaderHeight={55}
+                                          afterRender={this.addInput}
+
+                                />
 
 
+                            </CardBody>
 
+                        </Card>
 
+                        <div>
+                            <Button
+                                style={
+                                    {backgroundColor : '#42f545',
+                                        color : 'white',
+                                        border: 'none',
+                                        display: 'inline-block',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        marginLeft: '46%',
+                                        marginTop:'15px',
+                                        width: '75px',
+                                        height: '50px'
+                                    }
+                                }
+                                text-align = {'center'}
+                                onClick={this.toggle.bind(this)}
 
-                        {/*<div style={{
-                            columnGap:'0.75rem',
-                            marginLeft:'calc(-1*0.75rem)',
-                            marginRight:'calc(-1*0.75rem)',
-                            display:'flex',
-                            flexWrap:'wrap',
-                            marginBottom:'-.75rem',
-                            marginTop:'-.75rem',
-                            boxSizing:'inherit'
-                        }}>
-                            <div style={{
-                                paddingLeft:'0.75rem',
-                                paddingRight:'0.75rem',
-                                flex:'none',
-                                width:'100%',
-                                display:'block',
-                                padding:'.75rem'
-                            }}>
-                                <div>
-                                    <label style={{
-                                        marginBottom:'.5em',
-                                        color:'#363636',
-                                        display:'block',
-                                        fontSize:'1rem',
-                                        fontWeight:'700'
-                                    }}>Not</label>
-                                    <div>
-                                        <input  value={this.state.noteInputValue} onChange={evt => this.updateNoteInputValue(evt)} style={{
-
-                                            maxWidth:'100%',
-                                            width:'100%',
-                                            backgroundColor:'#fff',
-                                            borderColor:'#dbdbdb',
-                                            borderRadius:'4px',
-                                            color:'#363636',
-                                            alignItems:'center',
-                                            border:'1px solid #dbdbdb',
-                                            fontSize:'1rem',
-                                            height:'12.25em',
-                                            lineHeight:'1.5',
-                                            padding:'calc(.375em - 1px) calc(.625em - 1px)',
-                                            position:'relative',
-                                            verticalAlign:'top',
-                                            fontFamily:'proxima-nova,sans-serif',
-                                            margin:'0'
-
-                                        }}/>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*/}
-
-
-
-                        <div style={{
-                            columnGap:'0.75rem',
-                            marginLeft:'calc(-1*0.75rem)',
-                            marginRight:'calc(-1*0.75rem)',
-                            display:'flex',
-                            flexWrap:'wrap',
-                            marginBottom:'-.75rem',
-                            marginTop:'-.75rem',
-                            boxSizing:'inherit'
-                        }}>
-                            <div style={{
-                                paddingLeft:'0.75rem',
-                                paddingRight:'0.75rem',
-                                flex:'none',
-                                width:'100%',
-                                display:'block',
-                                padding:'.75rem'
-                            }}>
-                                <div>
-                                    <label style={{
-                                        marginBottom:'.5em',
-                                        color:'#363636',
-                                        display:'block',
-                                        fontSize:'1rem',
-                                        fontWeight:'700'
-                                    }}>Sevk Edilecek Ürünler</label>
-                                    <div style={{
-                                        boxSizing:'border-box',
-                                        clear:'both',
-                                        fontSize:'1rem',
-                                        position:'relative',
-                                        textAlign:'left'
-                                    }}>
-                                        <table style={{
-                                            backgroundColor:'inherit',
-                                            width:'100%',
-                                            color:'#363636',
-                                            borderCollapse:'collapse',
-                                            borderSpacing:'0',
-                                            boxSizing:'inherit'
-                                        }}>
-                                            <thead style={{
-                                                backgroundColor:'#fff',
-                                                color:'#363636',
-                                                borderCollapse:'collapse',
-                                                borderSpacing:'0',
-                                                textIndent:'initial'
-                                            }}>
-                                                <tr style={{
-                                                    boxSizing:'inherit',
-                                                    display:'table-row',
-                                                    verticalAlign:'inherit',
-                                                    borderColor:'inherit'
-                                                }}>
-                                                    <th style={{
-                                                        borderBottomWidth:'1px',
-                                                        verticalAlign:'middle',
-                                                        borderWidth:'1px',
-                                                        textAlign:'left',
-                                                        whiteSpace:'nowrap',
-                                                        width:'1%',
-                                                        color:'#363636',
-                                                        border:'solid #dbdbdb',
-                                                        padding:'.5em .75em',
-                                                        display:'table-cell'
-                                                    }}>Sevk Edilen Ürün Sayısı</th>
-                                                    <th style={{
-                                                        borderBottomWidth:'1px',
-                                                        verticalAlign:'middle',
-                                                        borderWidth:'1px',
-                                                        textAlign:'left',
-                                                        whiteSpace:'nowrap',
-                                                        width:'1%',
-                                                        color:'#363636',
-                                                        border:'solid #dbdbdb',
-                                                        padding:'.5em .75em',
-                                                        display:'table-cell'
-                                                    }}>Satın Alınan Ürün Sayısı</th>
-                                                    <th style={{
-                                                        borderBottomWidth:'1px',
-                                                        verticalAlign:'middle',
-                                                        borderWidth:'1px',
-                                                        textAlign:'left',
-                                                        whiteSpace:'nowrap',
-                                                        width:'1%',
-                                                        color:'#363636',
-                                                        border:'solid #dbdbdb',
-                                                        padding:'.5em .75em',
-                                                        display:'table-cell'
-                                                    }}>SKU</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style={{
-                                                backgroundColor:'transparent',
-                                                boxSizing:'inherit',
-                                                display:'table-row-group',
-                                                verticalAlign:'middle',
-                                                borderColor:'inherit'
-                                            }}>
-                                                <tr>
-                                                    <td style={{
-                                                        borderBottomWidth:'1px',
-                                                        verticalAlign:'middle',
-                                                        borderWidth:'1px',
-                                                        whiteSpace:'nowrap',
-                                                        width:'1%',
-                                                        textAlign:'left',
-                                                        border:'solid #dbdbdb',
-                                                        padding:'.5em .75em',
-                                                        display:'table-cell'
-                                                    }}>
-                                                        <input  value={this.state.shippedQtyInputValue} onChange={evt => this.updateShippedQtyInputValue(evt)} style={{
-
-                                                            boxShadow:'none',
-                                                            maxWidth:'100%',
-                                                            width:'100%',
-                                                            backgroundColor:'#fff',
-                                                            borderColor:'#dbdbdb',
-                                                            borderRadius:'4px',
-                                                            color:'#363636',
-                                                            alignItems:'center',
-                                                            display:'inline-flex',
-                                                            fontSize:'1rem',
-                                                            height:'2.25em',
-                                                            justifyContent:'flex-start',
-                                                            lineHeight:'1.5',
-                                                            padding:'calc(.375em - 1px) calc(.625em - 1px)',
-                                                            position:'relative',
-                                                            verticalAlign:'top',
-                                                            fontFamily:'proxima-nova,sans-serif',
-                                                            margin:'0'
-
-
-                                                        }}/>
-                                                    </td>
-
-                                                    <td style={{
-                                                        borderBottomWidth:'1px',
-                                                        verticalAlign:'middle',
-                                                        borderWidth:'1px',
-                                                        whiteSpace:'nowrap',
-                                                        width:'1%',
-                                                        textAlign:'left',
-                                                        border:'solid #dbdbdb',
-                                                        padding:'.5em .75em'
-                                                    }}>1</td>
-
-                                                    <td style={{
-                                                        borderBottomWidth:'1px',
-                                                        verticalAlign:'middle',
-                                                        borderWidth:'1px',
-                                                        whiteSpace:'nowrap',
-                                                        width:'1%',
-                                                        textAlign:'left',
-                                                        border:'solid #dbdbdb',
-                                                        padding:'.5em .75em'
-                                                    }}>L-21482</td>
-                                                </tr>
-                                            </tbody>
-
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
+                                cursor = {'pointer'}>
+                                OK
+                            </Button>
                         </div>
-
-
-
-
-
-                        <div style={{
-                            columnGap:'0.75rem',
-                            marginLeft:'calc(-1*0.75rem)',
-                            marginRight:'calc(-1*0.75rem)',
-                            display:'flex',
-                            flexWrap:'wrap',
-                            marginBottom:'-.75rem',
-                            marginTop:'-.75rem',
-                            boxSizing:'inherit'
-                        }}>
-                            <div style={{
-                                paddingLeft:'0.75rem',
-                                paddingRight:'0.75rem',
-                                flex:'none',
-                                width:'100%',
-                                display:'block',
-                                padding:'.75rem'
-                            }}>
-                                <div>
-
-                                    <button style={{
-                                        marginLeft:'.25rem',
-                                        marginRight:'.25rem',
-                                        marginBottom:'.5rem',
-                                        minWidth:'180px',
-                                        backgroundColor:'#40c0bd',
-                                        borderColor:'#dbdbdb',
-                                        borderWidth:'1px',
-                                        color:'#363636',
-                                        cursor:'pointer',
-                                        justifyContent:'center',
-                                        padding:'calc(.375em - 1px) .75em',
-                                        textAlign:'center',
-                                        whiteSpace:'nowrap',
-                                        alignItems:'center',
-
-                                        borderRadius:'4px',
-                                        boxShadow:'none',
-                                        display:'inline-flex',
-                                        fontSize:'1rem',
-                                        height:'2.25em',
-                                        lineHeight:'1.5'
-                                    }} onClick={() => this.SevkiyatEkleRequest()}>Sevkiyatı Kaydet</button>
-                                    <button style={{
-                                        marginLeft:'.25rem',
-                                        marginRight:'.25rem',
-                                        marginBottom:'.5rem',
-                                        minWidth:'180px',
-                                        backgroundColor:'#fff',
-                                        borderColor:'#dbdbdb',
-                                        borderWidth:'1px',
-                                        color:'#363636',
-                                        cursor:'pointer',
-                                        justifyContent:'center',
-                                        padding:'calc(.375em - 1px) .75em',
-                                        textAlign:'center',
-                                        whiteSpace:'nowrap',
-                                        alignItems:'center',
-
-                                        borderRadius:'4px',
-                                        boxShadow:'none',
-                                        display:'inline-flex',
-                                        fontSize:'1rem',
-                                        height:'2.25em',
-                                        lineHeight:'1.5'
-                                    }} onClick={() => this.props.setModalSevkiyat()}>İptal</button>
-
-                                    </div>
-                                </div>
-                        </div>
-
-
-
 
                     </ModalBody>
+                    <Spinner/>
                 </Modal>
+
             )
         } else {
             return (<></>)
@@ -752,7 +396,9 @@ function mapStateToProps(state) {
         region: state.region,
         order:state.order,
         orderId:state.orderId,
-        cancelStatus:state.cancelStatus
+        cancelStatus:state.cancelStatus,
+        originalRows: state.originalRows,
+        editedRows: state.editedRows
     }
 }
 

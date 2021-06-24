@@ -2,11 +2,32 @@ import {
     SET_LANG,
     SET_AUTH_USER,
     SET_MAXIMIZE,
-    SET_REGIONS, SET_REGION, SET_RADIO_SITES, SET_RADIO_SITE,
-    SET_TOKEN, SET_COMPANY, SET_ORDER, SET_ORDERID, SET_CANCEL_STATUS, MODAL_TOGGLE, MODAL_TITLE, MODAL_IMPORT_TOGGLE,
-    SET_TOPOLOGY_FIRST_LEVEL, SET_TOPOLOGY_SECOND_LEVEL,
-    EDIT_ON_TOGGLE, SPINNER_TOGGLE, MODAL_EXPORT_TOGGLE, MODAL_CANCEL_TOGGLE, MODAL_SEVKIYAT_TOGGLE,
-    SET_TOPOLOGY_SECOND_LEVEL_DROPDOWN_LABELS, IMPORT_POLLING, SHOW_REVISION, MODAL_SEVKIYAT_CANCEL_TOGGLE
+    SET_REGIONS,
+    SET_REGION,
+    SET_RADIO_SITES,
+    SET_RADIO_SITE,
+    SET_TOKEN,
+    SET_COMPANY,
+    SET_ORDER,
+    SET_ORDERID,
+    SET_CANCEL_STATUS,
+    MODAL_TOGGLE,
+    MODAL_TITLE,
+    MODAL_IMPORT_TOGGLE,
+    SET_TOPOLOGY_FIRST_LEVEL,
+    SET_TOPOLOGY_SECOND_LEVEL,
+    SET_ORIGINAL_ROWS,
+    SET_EDITED_ROWS,
+    EDIT_ON_TOGGLE,
+    SPINNER_TOGGLE,
+    MODAL_EXPORT_TOGGLE,
+    MODAL_CANCEL_TOGGLE,
+    MODAL_SEVKIYAT_TOGGLE,
+    SET_TOPOLOGY_SECOND_LEVEL_DROPDOWN_LABELS,
+    IMPORT_POLLING,
+    SHOW_REVISION,
+    MODAL_SEVKIYAT_CANCEL_TOGGLE,
+    SET_IS_DATA_CHANGED
 }
     from '../actions'
 
@@ -18,7 +39,10 @@ const initialState = {
     token: null,
     company: null,
     order: null,
+    originalRows: null,
+    editedRows: null,
     orderId: null,
+    isDataChanged:null,
     cancelStatus:null,
     modalToggle: false,
     editOn: false,
@@ -63,6 +87,15 @@ const reducers = (state = initialState, action) =>  {
                 localStorage.removeItem('Company');
             }
             return {...state, ...{company: action.company}}
+        }
+        case SET_ORIGINAL_ROWS: {
+            return {...state, ...{originalRows: action.originalRows}}
+        }
+        case SET_EDITED_ROWS: {
+            return {...state, ...{editedRows: action.editedRows}}
+        }
+        case SET_IS_DATA_CHANGED: {
+            return {...state, ...{isDataChanged: action.isDataChanged}}
         }
         case SET_ORDER: {
             if (action.order !== null) {

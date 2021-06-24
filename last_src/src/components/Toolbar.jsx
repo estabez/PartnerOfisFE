@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from "react-redux";
 import MaximizeContent from "./MaximizeContent";
-import {Row, Col, Card, CardBody, Button, ButtonGroup} from 'reactstrap';
+import {Row, Col, Card, CardBody, Button, ButtonGroup, Alert} from 'reactstrap';
 import {modalImportToggle, setShowRevision} from "../redux/actions";
 import SelectRegion from './SelectRegion';
 import SelectRadioSite from './SelectRadioSite';
 import ReactTooltip from 'react-tooltip'
 import Switch from "react-switch";
-
+import { withRouter } from 'react-router'
 // REST
 import RestApiModule from '../RestApiModule'
 // Alert
@@ -22,6 +22,11 @@ class Toolbar extends React.Component {
 
         this.restApi = new RestApiModule();
         this.alert = new AlertModule();
+
+        this.sureCheck = this.sureCheck.bind(this);
+        this.state = {
+            sureCheckState: null
+        }
     }
 
     componentDidMount() {
@@ -41,7 +46,7 @@ class Toolbar extends React.Component {
             token
         }).then(response => {
 
-            console.log(response);
+         //   console.log(response);
             const {isImportOngoing} = response;
 
             if (!isImportOngoing.isLock) {
@@ -59,9 +64,52 @@ class Toolbar extends React.Component {
         })
     }
 
+    openKaydetModal() {
+
+
+
+//console.log("ssss")
+
+
+    }
+
+
     handleChange() {
         this.props.setShowRevision();
         this.props.revision();
+    }
+
+    sureCheck(){
+    //    console.log('originalRows' + this.props.isDataChanged)
+
+
+        if(this.props.isDataChanged == true){
+            return new Promise((res, rej) => {
+
+                this.alert.getConfirmation(
+                    "warning",
+                    'Kaydedilmemiş Değişiklikler',
+                    'Bu sayfadan ayrılırsanız kaydedilmemiş tüm değişiklikler kaybolur.'
+                ).then(response => {
+                    if(response == true){
+
+                        this.props.history.push('/siparisler');
+
+
+                    }
+
+
+                })
+
+
+                //  this.alert.showMessage('warning', 'Uyarı', "Kaydedilmemiş Satırlar Mevcut. Başka sayfaya geçmek istediğinize emin misiniz?", false);
+                //
+
+            })
+        }else{
+            this.props.history.push('/siparisler');
+        }
+
     }
 
     render() {
@@ -85,29 +133,29 @@ class Toolbar extends React.Component {
 
 
                                 {!editOn &&
-                                <Link to={'/siparisler'}>
+
                                     <Button
                                         style={
-                                            {backgroundColor : '#4CAF50',
+                                            {backgroundColor : '#007bbd',
                                                 color : 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
                                             }
                                         }
                                         text-align = {'center'}
-
+                                        onClick={this.sureCheck}
 
                                         cursor = {'pointer'}>
                                         SİPARİŞLER
                                     </Button>
-                                </Link>
+
 
                                 }
                                 {editOn &&
-                                <Link to={'/siparisler'}>
+
                                     <Button
                                         style={
-                                            {backgroundColor : '#4CAF50',
+                                            {backgroundColor : '#007bbd',
                                                 color : 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
@@ -120,7 +168,7 @@ class Toolbar extends React.Component {
                                         disabled={true}>
                                         SİPARİŞLER
                                     </Button>
-                                </Link>
+
                                 }
 
                             </Col>
@@ -139,7 +187,7 @@ class Toolbar extends React.Component {
                                     <Button
                                         style={
                                             {
-                                                backgroundColor: '#4CAF50',
+                                                backgroundColor: '#007bbd',
                                                 color: 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
@@ -159,7 +207,7 @@ class Toolbar extends React.Component {
                                     <Button
                                         style={
                                             {
-                                                backgroundColor: '#4CAF50',
+                                                backgroundColor: '#007bbd',
                                                 color: 'white',
                                                 border: 'none',
                                                 display: 'inline-block',
@@ -187,6 +235,23 @@ class Toolbar extends React.Component {
                                 </span>
 
                                 {
+                                    <Button
+                                        style={
+                                            {
+                                                backgroundColor: '#007bbd',
+                                                color: 'white',
+                                                border: 'none',
+                                                display: 'inline-block',
+                                            }
+                                        }
+                                        text-align={'center'}
+                                        onClick={this.props['edit']}
+
+                                        cursor={'pointer'}>
+                                        KAYDET
+                                    </Button>
+
+                                    /*
                                     Object.entries(language.matrixToolbar).map((group, ind, arr) => {
                                         return (
                                             <ButtonGroup className={'mr-2'} key={group[0]}>
@@ -215,7 +280,9 @@ class Toolbar extends React.Component {
                                                                         ? this.openImportModal.bind(this)
                                                                         : this.props[item.clickEvent]
                                                                     }
-                                                                    color={item.btnClass}>
+                                                                    color={'#007bbd'}
+
+                                                            >
                                                                 <i className={`icon ${item.icon}`}/>
                                                             </Button>
                                                         )
@@ -259,12 +326,14 @@ class Toolbar extends React.Component {
                                                 }
                                             </ButtonGroup>
                                         )
-                                    })
+                                    })*/
                                 }
                                 <MaximizeContent/>
                             </Col>
                         </Row>
+
                     </CardBody>
+
                 </Card>
             )
         } else {
@@ -283,7 +352,7 @@ function mapStateToProps(state) {
         editOn: state.editOn,
         maximize: state.maximize,
         tooltipPlacement: state.tooltipPlacement,
-        showRevision: state.showRevision
+        isDataChanged:state.isDataChanged
     }
 }
 
@@ -294,4 +363,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Toolbar));

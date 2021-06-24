@@ -49,14 +49,16 @@ class AlertModule {
             Swal.fire({
                 title: title,
                 html: message,
-                icon: type,
+
                 allowOutsideClick: false,
                 showCancelButton: true,
                 allowEscapeKey: false,
                 allowEnterKey: false,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'OK'
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#a7a8a7',
+                confirmButtonText: 'Sayfadan Ayrıl',
+                cancelButtonText: 'İptal'
+
             }).then((result) => {
 
                 res(result.value)

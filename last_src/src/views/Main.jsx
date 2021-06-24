@@ -7,11 +7,22 @@ import {Row, Col, Card, CardBody, CardFooter} from 'reactstrap';
 import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import RestApiModule from '../RestApiModule';
+import ModalSevkiyat from "../components/ModalSevkiyat";
 
-import {editOnToggle, spinnerToggle} from "../redux/actions";
+import {
+    editOnToggle,
+    modalSevkiyatToggle,
+    spinnerToggle,
+    setEditedRows,
+    setOriginalRows,
+    setOrder,
+    setIsDataChanged, setCompany
+} from "../redux/actions";
 
 import Toolbar from '../components/Toolbar';
 import AlertModule from '../AlertModule'
+import Spinner from "../components/Spinner";
+import store from "../redux/store";
 
 
 class WDM extends React.Component {
@@ -20,6 +31,7 @@ class WDM extends React.Component {
     constructor(props) {
 
         super(props);
+        this.store = store;
         this.hotTableComponent = createRef();
         this.hot = null;
         this.columns = [];
@@ -32,6 +44,7 @@ class WDM extends React.Component {
         this.alert = new AlertModule();
         this.selectedRowCoords = {r: null, c: null};
         this.editedRowCoords = {r: null, c: null};
+
         this.today = new Date();
         this.arrayForDropdown = [];
         this.monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
@@ -54,11 +67,11 @@ class WDM extends React.Component {
     componentDidMount() {
         this.hot = this.hotTableComponent.current.hotInstance;
 
-
+      //  console.log(this.hotTableComponent)
 
         this.state.a = this.hot
 
-
+        this.store.dispatch(setIsDataChanged(false));
         const company = localStorage.getItem('Company');
 
         this.props.setSpinner();
@@ -75,7 +88,7 @@ class WDM extends React.Component {
 
                 }
             }
-            console.log(this.state.ColumnsInOrder)
+        //    console.log(this.state.ColumnsInOrder)
 /*
             for(let a=0; a<jsonBig.length; a++){
                 const jsonPair = response.data[a];
@@ -91,7 +104,7 @@ class WDM extends React.Component {
             }
             */
 
-            console.log(this.state.ColumnsInOrder[0])
+          //  console.log(this.state.ColumnsInOrder[0])
            for(let a=0; a<jsonBig.length; a++){
                const jsonPair = response.data[a];
                for(let c=0; c<11; c++){
@@ -102,7 +115,7 @@ class WDM extends React.Component {
                this.state.data.push(this.state.newArrData);
                this.state.newArrData = [];
             }
-            console.log(this.state.data)
+         //   console.log(this.state.data)
 
 
 
@@ -114,7 +127,7 @@ class WDM extends React.Component {
             const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
             const firstOfYear = new Date(now.getFullYear(), 0, 1);
             const numOfWeek = Math.ceil((((today - firstOfYear) / 86400000)-1)/7);
-            console.log(numOfWeek)
+         //   console.log(numOfWeek)
 
             this.arrayForDropdown.push("Son 1 yıl içerisinde üretilmiştir.");
             for(let b=1; b<numOfWeek+1; b++){
@@ -141,7 +154,7 @@ class WDM extends React.Component {
             ];
 
 
-
+            this.handsontableDataBackup = JSON.parse(JSON.stringify(this.handsontableData));
             this.forceUpdate();
 
 
@@ -240,16 +253,67 @@ class WDM extends React.Component {
     handleEditClick() {
 
 
-        const {r, c} = this.selectedRowCoords;
-        if (r === null && c === null) return;
+        let differentRowsWillSend = [];
 
-        this.handsontableDataBackup = JSON.parse(JSON.stringify(this.handsontableData));
-                    // Change edit mode on redux
-                    this.props.setEdit();
 
-                    this.setCellProperties(r, c);
-                    this.editedRowCoords.r = r;
-                    this.editedRowCoords.c = c;
+        for(let a=0; a< this.handsontableDataBackup.length; a++){
+
+            if(this.handsontableDataBackup[a].toString() != this.handsontableData[a].toString()){
+               // console.log(a + ":: index esit degil")
+                differentRowsWillSend.push(a);
+
+            }
+
+        }
+      //  console.log(differentRowsWillSend);
+        this.store.dispatch(setOriginalRows(differentRowsWillSend));
+        this.store.dispatch(setEditedRows(this.handsontableData));
+
+
+        const rows = []
+
+        for(let b = 0; b < differentRowsWillSend.length; b++){
+          //  console.log(this.handsontableData[differentRowsWillSend[b]])
+            rows.push(this.handsontableData[differentRowsWillSend[b]]);
+        }
+      //  console.log(rows)
+        let finalData = {};
+
+        this.state.ColumnsInOrder.forEach((v,i) => {
+            finalData[v] = rows[i+1]
+        });
+
+      //  console.log(finalData)
+
+        const company = localStorage.getItem('Company');
+
+        this.restApi.callApi('SaveMultipleRow', {
+           rows: rows,
+            company: company
+
+        }).then(response => {
+
+
+          //  console.log(response)
+
+
+
+
+
+
+        }).catch((err) => {
+            console.log(err);
+            this.props.setSpinner();
+        })
+
+
+
+        this.props.setModalSevkiyat();
+
+
+        this.hot.loadData(this.handsontableData);
+        this.hot.render();
+
 
     }
 
@@ -266,12 +330,57 @@ class WDM extends React.Component {
     }
 
 
+
+
+    handleAfterChangeFunction(r,c){
+
+
+
+        if(r !=null){
+            //console.log(r)
+            var changedR = r.toString().split(',');
+            let changedRowNumber = changedR[0];
+            let changedColumnNumber = changedR[1];
+
+            //console.log(changedR[3])
+            if(changedR[1] == '4') {
+
+
+
+                if(changedR[3] != '0' && changedR[3] != '-' && changedR[3] != 'null' && !isNaN(Number(changedR[3]))){
+                    this.store.dispatch(setIsDataChanged(true));
+                    this.hot.setCellMeta(changedRowNumber, changedColumnNumber, "className", 'changedCellBG');
+                    this.hot.render();
+                }else{
+
+                    this.alert.showMessage(
+                        'warning',
+                        "Uyarı",
+                        "Satış Fiyatı 0 olamaz",
+                        false)
+
+                    this.hot.setDataAtCell(parseInt(changedRowNumber, 10),parseInt(changedColumnNumber, 10),changedR[2].toString());
+                    this.hot.setCellMeta(parseInt(changedRowNumber, 10),parseInt(changedColumnNumber, 10),"className", 'NotchangedCellBG')
+                    this.hot.render();
+                }
+            }else{
+                this.store.dispatch(setIsDataChanged(true));
+                this.hot.setCellMeta(changedRowNumber, changedColumnNumber, "className", 'changedCellBG');
+                this.hot.render();
+            }
+
+
+
+        }
+
+    }
+
     handleSaveClick() {
-      console.log("aaaa")
+   //   console.log("aaaa")
         const {r, c} = this.editedRowCoords;
         let data = this.hot.getDataAtRow(r);
-        console.log(data);
-        console.log(this.state.ColumnsInOrder);
+      //  console.log(data);
+      //  console.log(this.state.ColumnsInOrder);
 
        let finalData = {};
 
@@ -279,10 +388,10 @@ class WDM extends React.Component {
            finalData[v] = data[i]
        });
 
-        console.log(finalData);
+      //  console.log(finalData);
 
         const company = localStorage.getItem('Company');
-        console.log(company);
+      //  console.log(company);
         this.restApi.callApi('saveRowAndSendFlxPoint', {
             row: finalData,
             company: company
@@ -361,7 +470,7 @@ class WDM extends React.Component {
            //console.log(TH)
 
             if(TH.children[0].children[1] != null || TH.children[0].children[1] != undefined){
-                console.log(TH.children[0].children[1].innerText)
+             //   console.log(TH.children[0].children[1].innerText)
                 //   console.log(document.getElementsByClassName("colHeader columnSorting sortAction"))
 
                let kolonAdi = TH.children[0].children[1].innerText;
@@ -389,6 +498,7 @@ class WDM extends React.Component {
 
 
     render() {
+
         return(
             <>
                 <Header/>
@@ -427,6 +537,7 @@ class WDM extends React.Component {
                                            afterGetColHeader={this.addInput}
                                            beforeOnCellMouseDown={this.doNotSelectColumn}
                                            columnHeaderHeight={55}
+                                           afterChange={(r, c) => this.handleAfterChangeFunction(r)}
                                 />
 
                             </CardBody>
@@ -435,7 +546,8 @@ class WDM extends React.Component {
                         </Card>
                     </Col>
                 </Row>
-
+                <ModalSevkiyat/>
+                <Spinner/>
             </>
         )
     }
@@ -450,12 +562,19 @@ function mapStateToProps(state) {
         contentCSS: state.contentCSS,
         fontSize: state.topologySelectedNodeFontSize,
         spinnerToggle: state.spinnerToggle,
+        originalRows: state.originalRows,
+        editedRows: state.editedRows,
+        isDataChanged: state.isDataChanged
     }
 }
 function mapDispatchToProps(dispatch) {
     return {
         setEdit: () => dispatch(editOnToggle()),
         setSpinner: () => dispatch(spinnerToggle()),
+        setModalSevkiyat: () => dispatch(modalSevkiyatToggle()),
+        setOriginalRows: () => dispatch(setOriginalRows()),
+        setEditedRows: () => dispatch(setEditedRows()),
+        setIsDataChanged: () => dispatch(setIsDataChanged()),
     }
 
 }
